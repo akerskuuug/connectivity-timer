@@ -14,7 +14,7 @@
         
         <activity
             android:name=".core.MainActivity"
-            android:label="@string/app_name" >
+           >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,12 +26,19 @@
             android:name=".core.DisconnectTimerActivity"
             android:label="@string/wf_timer_name" >
             <intent-filter>
-                <action android:name="com.connectivitytimer.core.WIFITIMER" />
+                <action android:name="com.connectivitytimer.core.WIFIWATCHER" />
 
             </intent-filter>
         </activity>
         
-        
+          <activity
+            android:name=".core.TimedWifiActivity"
+            android:label="@string/timed_wf_name" >
+            <intent-filter>
+                <action android:name="com.connectivitytimer.core.TIMED_WIFI" />
+
+            </intent-filter>
+        </activity>
       
         <receiver android:process=":remote" android:name=".alarm.DisconnectReceiver" />
         <receiver android:process=":remote" android:name=".alarm.RetryReceiver" />

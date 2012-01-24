@@ -96,7 +96,7 @@ public class DisconnectReceiver extends BroadcastReceiver {
 					// Create the visuals for the notification
 					int icon = android.R.drawable.star_on;
 					CharSequence tickerText = context
-							.getString(com.connectivitytimer.R.string.wifi_deactivated);
+							.getString(com.connectivitytimer.R.string.wifi_disabled);
 					long when = System.currentTimeMillis();
 					Notification notification = new Notification(icon,
 							tickerText, when);
@@ -110,8 +110,8 @@ public class DisconnectReceiver extends BroadcastReceiver {
 					notification
 							.setLatestEventInfo(
 									context,
-									context.getString(com.connectivitytimer.R.string.wifi_deactivated),
-									context.getString(com.connectivitytimer.R.string.wifi_deactivated_lost_conn),
+									context.getString(com.connectivitytimer.R.string.wifi_disabled),
+									context.getString(com.connectivitytimer.R.string.wifi_disabled_lost_conn),
 									contentIntent);
 					notification.flags |= Notification.FLAG_AUTO_CANCEL;
 

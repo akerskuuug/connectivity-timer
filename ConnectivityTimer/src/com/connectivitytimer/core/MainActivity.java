@@ -16,9 +16,10 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		Button wfTimerButton = (Button) findViewById(R.id.wftimer_button);
+		Button wifiWatcherButton = (Button) findViewById(R.id.wfwatcher_button);
+		Button timedWifiButton = (Button) findViewById(R.id.timed_wf_button);
 
-		wfTimerButton.setOnClickListener(new OnClickListener() {
+		wifiWatcherButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 				Intent intent = new Intent(MainActivity.this,
@@ -26,5 +27,15 @@ public class MainActivity extends Activity {
 				MainActivity.this.startActivity(intent);
 			}
 		});
+
+		timedWifiButton.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this,
+						TimedWifiActivity.class);
+				MainActivity.this.startActivity(intent);
+			}
+		});
+
 	}
 }
