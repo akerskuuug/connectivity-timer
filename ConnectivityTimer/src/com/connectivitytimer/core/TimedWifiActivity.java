@@ -35,12 +35,16 @@ public class TimedWifiActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.timed_wifi);
 
-		final Spinner durationSpinner = (Spinner) findViewById(R.id.duration_input);
+		final Spinner durationSpinner =
+				(Spinner) findViewById(R.id.duration_input);
 		tooltip = (TextView) findViewById(R.id.timed_wf_tooltip);
 
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-				this, com.connectivitytimer.R.array.durations_array,
-				R.layout.my_simple_spinner_item);
+		am = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+		ArrayAdapter<CharSequence> adapter =
+				ArrayAdapter.createFromResource(this,
+						com.connectivitytimer.R.array.durations_array,
+						R.layout.my_simple_spinner_item);
 
 		durationSpinner.setAdapter(adapter);
 		// Default delay is 30 minutes
@@ -53,8 +57,9 @@ public class TimedWifiActivity extends Activity {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				// Read the desired delay
-				duration = Integer.parseInt(durationSpinner.getSelectedItem()
-						.toString());
+				duration =
+						Integer.parseInt(durationSpinner.getSelectedItem()
+								.toString());
 				tooltip.setText(getString(R.string.timed_wf_tooltip_text));
 			}
 
@@ -69,29 +74,62 @@ public class TimedWifiActivity extends Activity {
 		startButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				RadioButton radio = (RadioButton) findViewById(R.id.connect_check);
+				RadioButton radio =
+						(RadioButton) findViewById(R.id.connect_check);
+				boolean checked = radio.isChecked();
+
 				Calendar cal = Calendar.getInstance();
 
 				cal.add(Constants.DURATION, duration);
 
-				Intent intent = new Intent(TimedWifiActivity.this,
-						DisconnectReceiver.class);
+				Intent intent =
+						new Intent(TimedWifiActivity.this,
+								DisconnectReceiver.class);
 
-				intent.putExtra("wifi_enable", radio.isChecked());
+				intent.putExtra("wifi_enable", checked);
 
-				WifiManager wfMgr = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-				wfMgr.setWifiEnabled(!radio.isChecked());
+				WifiManager wfMgr =
+						(WifiManager) getSystemService(Context.WIFI_SERVICE);
+				wfMgr.setWifiEnabled(!checked);
 
-				PendingIntent sender = PendingIntent.getBroadcast(
-						TimedWifiActivity.this, 0, intent,
-						PendingIntent.FLAG_UPDATE_CURRENT);
+				PendingIntent sender =
+						PendingIntent.getBroadcast(TimedWifiActivity.this, 0,
+								intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 				Toast.makeText(getApplicationContext(),
 						getString(R.string.service_started), Toast.LENGTH_SHORT)
 						.show();
+
+				// Cancel any conflicting alarms
+				am.cancel(sender);
+
 				// Set the alarm
 				am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), sender);
 
+				Toast.makeText(getApplicationContext(),
+						getString(R.string.service_started), Toast.LENGTH_SHORT)
+						.show();
+
+			}
+		});
+
+		Button stopButton = (Button) findViewById(R.id.timed_wf_stopbutton);
+
+		stopButton.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				Intent tempIntent =
+						new Intent(TimedWifiActivity.this,
+								DisconnectReceiver.class);
+				PendingIntent tempSender =
+						PendingIntent.getBroadcast(TimedWifiActivity.this, 0,
+								tempIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+				am.cancel(tempSender);
+
+				Toast.makeText(getApplicationContext(),
+						getString(R.string.service_stopped), Toast.LENGTH_SHORT)
+						.show();
 			}
 		});
 
