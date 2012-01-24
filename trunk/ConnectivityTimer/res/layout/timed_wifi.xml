@@ -4,10 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical" 
     android:gravity="center">
-
     
     <TextView
-        android:id="@+id/watcher_tooltip"
+        android:id="@+id/timed_wf_tooltip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dip"
@@ -15,15 +14,17 @@
     
     <!-- Options -->
     <LinearLayout	
-        android:layout_below="@+id/watcher_tooltip"
+        android:layout_below="@+id/timed_wf_tooltip"
         android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="vertical"
    		android:padding="20dip">
+   		
+        
 	 <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/wifi_disable_delay"
+        android:text="@string/timed_wf_duration"
         android:textSize="15dip"
         />    
         
@@ -40,44 +41,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dip"
-        android:text="@string/set_disable_actions"
+        android:text="@string/action"
         android:textSize="15dip"/>
     
     
     <!-- Divider -->
   	<include layout="@layout/divider"/>
     
-    <CheckBox android:id="@+id/retry_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		android:paddingLeft="45dip"
-        android:text="@string/retry_connection"
-        android:textSize="13dip"/>
-    
-     <CheckBox android:id="@+id/exit_service_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		android:paddingLeft="45dip"
-        android:text="@string/disable_service"
-        android:textSize="13dip"
-        android:checked="true"/>
-    
-	<!-- Divider -->
-  	<include layout="@layout/divider"/>
-    
-    <CheckBox android:id="@+id/threeg_enable_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		android:paddingLeft="45dip"
-        android:text="@string/enable_3g" 
-        android:textSize="13dip"/>
-     <CheckBox android:id="@+id/threeg_disable_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		android:paddingLeft="45dip"
-        android:text="@string/disable_3g" 
-        android:textSize="13dip"/>
-     
+  	<RadioGroup 
+  	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content">
+	    <RadioButton android:id="@+id/connect_check"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+			android:paddingLeft="45dip"
+	        android:text="@string/wifi_enable"
+	        android:textSize="13dip"
+	        android:checked="true"/>
+	    
+	     <RadioButton android:id="@+id/disconnect_check"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+			android:paddingLeft="45dip"
+	        android:text="@string/wifi_disable"
+	        android:textSize="13dip"
+	        />
+    </RadioGroup>
      
     </LinearLayout>
     <!-- /Options -->
@@ -90,16 +79,18 @@
 	    android:orientation="vertical" 
 	    android:gravity="center">
 	    <Button
-	        android:id="@+id/startbutton"
+	        android:id="@+id/timed_wf_startbutton"
 	        android:layout_width="match_parent"
 	        android:layout_height="50dip"
 	        android:text="@string/start" />
 	
 	    <Button
-	    	android:id="@+id/stopbutton"
+	    	android:id="@+id/timed_wf_stopbutton"
 	    	android:layout_width="match_parent"
 			android:layout_height="50dip"
 	    	android:text="@string/stop" />
     </LinearLayout>
     <!-- /Buttons -->
+    
+
 </RelativeLayout>

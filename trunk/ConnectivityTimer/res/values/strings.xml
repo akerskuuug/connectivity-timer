@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+	<!-- General -->
     <string name="app_name">Connectivity Timer</string>
+    <string name="enable_3g">Aktivera 3G-uppkoppling</string>
     <string name="disable_3g">Inaktivera 3G-uppkoppling</string>
     <string name="disable_service">Avsluta tjänsten</string>
-    <string name="enable_3g">Aktivera 3G-uppkoppling</string>
-    <string name="retry_connection">Försök återuppkoppla med 30 minuters mellanrum </string>
 	<string name="start">Starta tjänst</string>
 	<string name="stop">Stoppa tjänst</string>
 	<string name="service_started">Tjänsten startad</string>
 	<string name="service_stopped">Tjänsten stoppad</string>
-	<string name="set_disconnect_actions">När Wi-Fi inaktiveras</string>
-	<string name="tooltip_text">Wi-Fi startas automatiskt med tjänsten. \nNär tjänsten startas kommer den med jämna mellanrum kontrollera om Wi-Fi är anslutet till ett närverk. Efter max</string>
-	<string name="tooltip_text_end">minuter utan uppkoppling kommer Wi-Fi stängas av.</string>
-	<string name="wf_timer_name">Wi-Fi Watcher</string>
-	<string name="wifi_deactivate_delay">Fördröjning (minuter)</string>
-	<string name="wifi_deactivated">Wi-Fi inaktiverat</string>
-	<string name="wifi_deactivated_lost_conn">Wi-Fi inaktiverat efter förlorad uppkoppling</string>
+    <string name="wifi_disable">Inaktivera Wi-Fi</string>
+	<string name="wifi_disabled">Wi-Fi inaktiverat</string>
+	<string name="wifi_enable">Aktivera Wi-Fi</string>
+    
+    <!-- Main -->
+	<string name="wf_timer_name">Övervaka Wi-Fi</string>
+	<string name="timed_tg_name">Tidsbegränsad mobildata</string>
+	<string name="timed_wf_name">Tidsbegränsad Wi-Fi</string>
+	
+	<!-- Wi-Fi Watcher -->
+    <string name="retry_connection">Försök återuppkoppla med 30 minuters mellanrum </string>
+	<string name="set_disable_actions">När Wi-Fi inaktiveras</string>
+	<string name="watcher_tooltip_text">Wi-Fi startas automatiskt med tjänsten. \nNär tjänsten startas kommer den med jämna mellanrum kontrollera om Wi-Fi är anslutet till ett nätverk. Efter max</string>
+	<string name="watcher_tooltip_text_end">minuter utan uppkoppling kommer Wi-Fi stängas av.</string>
+	<string name="wifi_disable_delay">Fördröjning (minuter)</string>
+	<string name="wifi_disabled_lost_conn">Wi-Fi inaktiverat efter förlorad uppkoppling</string>
+	
+	<!-- Timed Wi-Fi -->
+	<string name="action">Åtgärd</string>
+	<string name="timed_wf_tooltip_text">När tjänsten startas kommer Wi-Fi aktiveras eller inaktiveras under en bestämd tidsperiod. Efter denna tidsperiod kommer Wi-Fi återställas.</string>
+    <string name="timed_wf_duration">Varaktighet (minuter)</string>
+    
+    
 </resources>

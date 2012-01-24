@@ -44,7 +44,7 @@ public class DisconnectTimerActivity extends Activity {
 		am = (AlarmManager) getSystemService(ALARM_SERVICE);
 
 		final Spinner durationSpinner = (Spinner) findViewById(R.id.duration_input);
-		tooltip = (TextView) findViewById(R.id.tooltip);
+		tooltip = (TextView) findViewById(R.id.watcher_tooltip);
 
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
 				this, com.connectivitytimer.R.array.durations_array,
@@ -63,8 +63,9 @@ public class DisconnectTimerActivity extends Activity {
 				// Read the desired delay
 				duration = Integer.parseInt(durationSpinner.getSelectedItem()
 						.toString());
-				tooltip.setText(getString(R.string.tooltip_text) + " "
-						+ duration + " " + getString(R.string.tooltip_text_end));
+				tooltip.setText(getString(R.string.watcher_tooltip_text) + " "
+						+ duration + " "
+						+ getString(R.string.watcher_tooltip_text_end));
 			}
 
 			public void onNothingSelected(AdapterView<?> parent) {
