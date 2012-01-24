@@ -9,70 +9,78 @@
         android:id="@+id/timed_wf_tooltip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dip"
+        android:layout_margin="5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
         />
     
     <!-- Options -->
-    <LinearLayout	
+    <ScrollView	
+        android:id="@+id/timed_wf_scroll"
         android:layout_below="@+id/timed_wf_tooltip"
+        android:layout_above="@+id/timed_wf_buttons"
         android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:orientation="vertical"
-   		android:padding="20dip">
-   		
-        
-	 <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/timed_wf_duration"
-        android:textSize="15dip"
-        />    
-        
-	<!-- Divider -->
-  	<include layout="@layout/divider"/>
-  	
-    <Spinner
-        android:id="@+id/duration_input"
-        android:layout_marginTop="10dip"
-        android:layout_width="150dip"
-        android:layout_height="wrap_content"/>
-    
-    <TextView 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dip"
-        android:text="@string/action"
-        android:textSize="15dip"/>
-    
-    
-    <!-- Divider -->
-  	<include layout="@layout/divider"/>
-    
-  	<RadioGroup 
-  	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content">
-	    <RadioButton android:id="@+id/connect_check"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-			android:paddingLeft="45dip"
-	        android:text="@string/wifi_enable"
-	        android:textSize="13dip"
-	        android:checked="true"/>
-	    
-	     <RadioButton android:id="@+id/disconnect_check"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-			android:paddingLeft="45dip"
-	        android:text="@string/wifi_disable"
-	        android:textSize="13dip"
-	        />
-    </RadioGroup>
-     
-    </LinearLayout>
+   		android:padding="5dip">
+	 	<LinearLayout        
+	    	android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:orientation="vertical">
+	   		
+	        
+			 <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/timed_wf_duration"
+		        android:textSize="15dip"
+		        />    
+		        
+			<!-- Divider -->
+		  	<include layout="@layout/divider"/>
+		  	
+		    <Spinner
+		        android:id="@+id/duration_input"
+		        android:layout_marginTop="10dip"
+		        android:layout_width="150dip"
+		        android:layout_height="wrap_content"/>
+		    
+		    <TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="20dip"
+		        android:text="@string/action"
+		        android:textSize="15dip"/>
+		    
+		    
+		    <!-- Divider -->
+		  	<include layout="@layout/divider"/>
+		    
+		  	<RadioGroup 
+		  	    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content">
+			    <RadioButton android:id="@+id/connect_check"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+					android:paddingLeft="45dip"
+			        android:text="@string/wifi_enable"
+			        android:textSize="13dip"
+			        android:checked="true"/>
+			    
+			     <RadioButton android:id="@+id/disconnect_check"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+					android:paddingLeft="45dip"
+			        android:text="@string/wifi_disable"
+			        android:textSize="13dip"
+			        />
+		    </RadioGroup>
+     	</LinearLayout>
+    </ScrollView>
     <!-- /Options -->
     
     <!-- Buttons -->
     <LinearLayout 
+        android:id="@+id/timed_wf_buttons"
 		android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
