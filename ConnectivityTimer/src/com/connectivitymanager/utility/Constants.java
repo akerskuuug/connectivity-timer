@@ -1,4 +1,4 @@
-package com.connectivitytimer.utility;
+package com.connectivitymanager.utility;
 
 import java.util.Calendar;
 
