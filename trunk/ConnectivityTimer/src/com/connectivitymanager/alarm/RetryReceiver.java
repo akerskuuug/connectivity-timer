@@ -1,4 +1,4 @@
-package com.connectivitytimer.alarm;
+package com.connectivitymanager.alarm;
 
 import java.util.Calendar;
 
@@ -11,7 +11,7 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.connectivitytimer.utility.Constants;
+import com.connectivitymanager.utility.Constants;
 
 public class RetryReceiver extends BroadcastReceiver {
 

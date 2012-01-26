@@ -2,7 +2,7 @@
 <resources>
 
 	<!-- General -->
-    <string name="app_name">Connectivity Timer</string>
+    <string name="app_name">Connectivity Manager</string>
     <string name="enable_3g">Aktivera 3G-uppkoppling</string>
     <string name="disable_3g">Inaktivera 3G-uppkoppling</string>
     <string name="disable_service">Avsluta tjänsten</string>

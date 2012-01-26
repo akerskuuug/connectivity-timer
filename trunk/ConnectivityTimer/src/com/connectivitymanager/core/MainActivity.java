@@ -1,4 +1,4 @@
-package com.connectivitytimer.core;
+package com.connectivitymanager.core;
 
 import android.app.Activity;
 import android.content.Intent;

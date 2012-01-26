@@ -1,4 +1,4 @@
-package com.connectivitytimer.core;
+package com.connectivitymanager.core;
 
 import java.util.Calendar;
 
@@ -20,9 +20,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.connectivitymanager.alarm.DisconnectReceiver;
+import com.connectivitymanager.utility.Constants;
 import com.connectivitytimer.R;
-import com.connectivitytimer.alarm.DisconnectReceiver;
-import com.connectivitytimer.utility.Constants;
 
 public class TimedWifiActivity extends Activity {
 

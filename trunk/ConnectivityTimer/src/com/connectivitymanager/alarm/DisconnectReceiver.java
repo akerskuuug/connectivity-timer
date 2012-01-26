@@ -1,4 +1,4 @@
-package com.connectivitytimer.alarm;
+package com.connectivitymanager.alarm;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -16,8 +16,8 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.connectivitytimer.core.DisconnectTimerActivity;
-import com.connectivitytimer.utility.Constants;
+import com.connectivitymanager.core.DisconnectTimerActivity;
+import com.connectivitymanager.utility.Constants;
 
 public class DisconnectReceiver extends BroadcastReceiver {
 	private WifiManager wfMgr;
