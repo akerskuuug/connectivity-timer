@@ -16,7 +16,7 @@
     
     <!-- Main -->
 	<string name="wf_timer_name">Övervaka Wi-Fi</string>
-	<string name="timed_tg_name">Tidsbegränsad mobildata</string>
+	<string name="timed_3g_name">Tidsbegränsad mobildata</string>
 	<string name="timed_wf_name">Tidsbegränsad Wi-Fi</string>
 	
 	<!-- Wi-Fi Watcher -->
@@ -32,5 +32,7 @@
 	<string name="timed_wf_tooltip_text">När tjänsten startas kommer Wi-Fi aktiveras eller inaktiveras under en bestämd tidsperiod. Efter denna tidsperiod kommer Wi-Fi återställas.</string>
     <string name="timed_wf_duration">Varaktighet (timmar : minuter)</string>
     
+    <!-- Timed 3G -->
+    <string name="timed_tg_tooltip_text">När tjänsten startas kommer mobildata aktiveras eller inaktiveras under en bestämd tidsperiod. Efter denna tidsperiod kommer mobildata återställas.</string>
     
 </resources>

@@ -26,8 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="65dip"
         android:textSize="20dip"
-        android:text="@string/timed_tg_name"
-        android:visibility="gone"
+        android:text="@string/timed_3g_name"
         />
     
 

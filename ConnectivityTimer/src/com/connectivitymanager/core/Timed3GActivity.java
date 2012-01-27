@@ -23,8 +23,7 @@ import android.widget.Toast;
 import com.connectivitymanager.R;
 import com.connectivitymanager.alarm.DisconnectReceiver;
 
-public class TimedWifiActivity extends Activity {
-
+public class Timed3GActivity extends Activity {
 	private TextView tooltip;
 	private int durationHours, durationMinutes;
 	private AlarmManager am;
@@ -36,7 +35,7 @@ public class TimedWifiActivity extends Activity {
 
 		final Spinner durationSpinner =
 				(Spinner) findViewById(R.id.duration_input);
-		tooltip = (TextView) findViewById(R.id.timed_wf_tooltip);
+		tooltip = (TextView) findViewById(R.id.timed_tg_tooltip);
 
 		am = (AlarmManager) getSystemService(ALARM_SERVICE);
 
@@ -57,10 +56,10 @@ public class TimedWifiActivity extends Activity {
 
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				// Read the desired delay
+
 				String durationText =
 						durationSpinner.getSelectedItem().toString();
-
+				// Read the desired delay
 				durationHours =
 						Integer.parseInt(durationText.substring(0,
 								durationText.indexOf(':')));
@@ -69,7 +68,7 @@ public class TimedWifiActivity extends Activity {
 						Integer.parseInt(durationText.substring(durationText
 								.indexOf(':') + 1));
 
-				tooltip.setText(getString(R.string.timed_wf_tooltip_text));
+				// tooltip.setText(getString(R.string.timed_tg_tooltip_text));
 			}
 
 			public void onNothingSelected(AdapterView<?> parent) {
@@ -86,23 +85,24 @@ public class TimedWifiActivity extends Activity {
 				RadioButton radio =
 						(RadioButton) findViewById(R.id.connect_check);
 				boolean checked = radio.isChecked();
+
 				Calendar cal = Calendar.getInstance();
 
 				cal.add(Calendar.HOUR, durationHours);
 				cal.add(Calendar.MINUTE, durationMinutes);
 
 				Intent intent =
-						new Intent(TimedWifiActivity.this,
+						new Intent(Timed3GActivity.this,
 								DisconnectReceiver.class);
 
-				intent.putExtra("wifi_enable", checked);
+				intent.putExtra("3g_enable", checked);
 
 				WifiManager wfMgr =
 						(WifiManager) getSystemService(Context.WIFI_SERVICE);
 				wfMgr.setWifiEnabled(!checked);
 
 				PendingIntent sender =
-						PendingIntent.getBroadcast(TimedWifiActivity.this, 0,
+						PendingIntent.getBroadcast(Timed3GActivity.this, 0,
 								intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 				Toast.makeText(getApplicationContext(),
@@ -128,10 +128,10 @@ public class TimedWifiActivity extends Activity {
 
 			public void onClick(View v) {
 				Intent tempIntent =
-						new Intent(TimedWifiActivity.this,
+						new Intent(Timed3GActivity.this,
 								DisconnectReceiver.class);
 				PendingIntent tempSender =
-						PendingIntent.getBroadcast(TimedWifiActivity.this, 0,
+						PendingIntent.getBroadcast(Timed3GActivity.this, 0,
 								tempIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 				am.cancel(tempSender);
