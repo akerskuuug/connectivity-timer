@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.connectivitytimer.R;
+import com.connectivitymanager.R;
 
 public class MainActivity extends Activity {
 
@@ -22,8 +22,9 @@ public class MainActivity extends Activity {
 		wifiWatcherButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this,
-						DisconnectTimerActivity.class);
+				Intent intent =
+						new Intent(MainActivity.this,
+								DisconnectTimerActivity.class);
 				MainActivity.this.startActivity(intent);
 			}
 		});
@@ -31,8 +32,8 @@ public class MainActivity extends Activity {
 		timedWifiButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this,
-						TimedWifiActivity.class);
+				Intent intent =
+						new Intent(MainActivity.this, TimedWifiActivity.class);
 				MainActivity.this.startActivity(intent);
 			}
 		});
