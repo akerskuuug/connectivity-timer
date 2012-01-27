@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.connectivitytimer"
+    package="com.connectivitymanager"
     android:versionCode="1"
     android:versionName="0.6" >
 
@@ -26,16 +26,16 @@
             android:name=".core.DisconnectTimerActivity"
             android:label="@string/wf_timer_name" >
             <intent-filter>
-                <action android:name="com.connectivitytimer.core.WIFIWATCHER" />
+                <action android:name="com.connectivitymanager.core.WIFIWATCHER" />
 
             </intent-filter>
         </activity>
         
           <activity
-            android:name=".core.TimedWifiActivity.core.TimedWifiActivity"
+            android:name=".core.TimedWifiActivity"
             android:label="@string/timed_wf_name" >
             <intent-filter>
-                <action android:name="com.connectivitytimer.core.TIMED_WIFI" />
+                <action android:name="com.connectivitymanager.core.TIMED_WIFI" />
 
             </intent-filter>
         </activity>
