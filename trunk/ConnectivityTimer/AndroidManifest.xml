@@ -31,15 +31,26 @@
             </intent-filter>
         </activity>
         
-          <activity
-            android:name=".core.TimedWifiActivity"
-            android:label="@string/timed_wf_name" >
-            <intent-filter>
-                <action android:name="com.connectivitymanager.core.TIMED_WIFI" />
+        <activity
+        	android:name=".core.TimedWifiActivity"
+        	android:label="@string/timed_wf_name" >
+        	<intent-filter>
+        		<action android:name="com.connectivitymanager.core.TIMED_WIFI" />
 
-            </intent-filter>
+        	</intent-filter>
         </activity>
       
+        <activity
+        	android:name=".core.Timed3GActivity"
+        	android:label="@string/timed_3g_name" >
+        	<intent-filter>
+        		<action android:name="com.connectivitymanager.core.TIMED_3G" />
+
+        	</intent-filter>
+        </activity>
+      
+        
+        
         <receiver android:process=":remote" android:name=".alarm.DisconnectReceiver" />
         <receiver android:process=":remote" android:name=".alarm.RetryReceiver.alarm.RetryReceiver" />
     </application>
