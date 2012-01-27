@@ -3,8 +3,8 @@
 
 	<!-- General -->
     <string name="app_name">Connectivity Manager</string>
-    <string name="enable_3g">Aktivera 3G-uppkoppling</string>
-    <string name="disable_3g">Inaktivera 3G-uppkoppling</string>
+    <string name="enable_3g">Aktivera mobildata</string>
+    <string name="disable_3g">Inaktivera mobildata</string>
     <string name="disable_service">Avsluta tjänsten</string>
 	<string name="start">Starta tjänst</string>
 	<string name="stop">Stoppa tjänst</string>

@@ -22,6 +22,8 @@ import android.widget.Toast;
 
 import com.connectivitymanager.R;
 import com.connectivitymanager.alarm.DisconnectReceiver;
+import com.connectivitymanager.alarm.TimedWifiReceiver;
+import com.connectivitymanager.utility.Constants;
 
 public class TimedWifiActivity extends Activity {
 
@@ -34,18 +36,14 @@ public class TimedWifiActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.timed_wifi);
 
-		final Spinner durationSpinner =
-				(Spinner) findViewById(R.id.duration_input);
+		final Spinner durationSpinner = (Spinner) findViewById(R.id.duration_input);
 		tooltip = (TextView) findViewById(R.id.timed_wf_tooltip);
 
 		am = (AlarmManager) getSystemService(ALARM_SERVICE);
 
-		ArrayAdapter<CharSequence> adapter =
-				ArrayAdapter
-						.createFromResource(
-								this,
-								com.connectivitymanager.R.array.timed_wf_durations_array,
-								R.layout.my_simple_spinner_item);
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+				this, com.connectivitymanager.R.array.timed_wf_durations_array,
+				R.layout.my_simple_spinner_item);
 
 		durationSpinner.setAdapter(adapter);
 		// Default delay is 30 minutes
@@ -58,16 +56,14 @@ public class TimedWifiActivity extends Activity {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				// Read the desired delay
-				String durationText =
-						durationSpinner.getSelectedItem().toString();
+				String durationText = durationSpinner.getSelectedItem()
+						.toString();
 
-				durationHours =
-						Integer.parseInt(durationText.substring(0,
-								durationText.indexOf(':')));
+				durationHours = Integer.parseInt(durationText.substring(0,
+						durationText.indexOf(':')));
 
-				durationMinutes =
-						Integer.parseInt(durationText.substring(durationText
-								.indexOf(':') + 1));
+				durationMinutes = Integer.parseInt(durationText
+						.substring(durationText.indexOf(':') + 1));
 
 				tooltip.setText(getString(R.string.timed_wf_tooltip_text));
 			}
@@ -83,27 +79,24 @@ public class TimedWifiActivity extends Activity {
 		startButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				RadioButton radio =
-						(RadioButton) findViewById(R.id.connect_check);
+				RadioButton radio = (RadioButton) findViewById(R.id.connect_check);
 				boolean checked = radio.isChecked();
 				Calendar cal = Calendar.getInstance();
 
-				cal.add(Calendar.HOUR, durationHours);
-				cal.add(Calendar.MINUTE, durationMinutes);
+				cal.add(Constants.DURATION * 60, durationHours);
+				cal.add(Constants.DURATION, durationMinutes);
 
-				Intent intent =
-						new Intent(TimedWifiActivity.this,
-								DisconnectReceiver.class);
+				Intent intent = new Intent(TimedWifiActivity.this,
+						TimedWifiReceiver.class);
 
-				intent.putExtra("wifi_enable", checked);
+				intent.putExtra("wifi_enable", !checked);
 
-				WifiManager wfMgr =
-						(WifiManager) getSystemService(Context.WIFI_SERVICE);
-				wfMgr.setWifiEnabled(!checked);
+				WifiManager wfMgr = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+				wfMgr.setWifiEnabled(checked);
 
-				PendingIntent sender =
-						PendingIntent.getBroadcast(TimedWifiActivity.this, 0,
-								intent, PendingIntent.FLAG_UPDATE_CURRENT);
+				PendingIntent sender = PendingIntent.getBroadcast(
+						TimedWifiActivity.this, 0, intent,
+						PendingIntent.FLAG_UPDATE_CURRENT);
 
 				Toast.makeText(getApplicationContext(),
 						getString(R.string.service_started), Toast.LENGTH_SHORT)
@@ -127,12 +120,11 @@ public class TimedWifiActivity extends Activity {
 		stopButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Intent tempIntent =
-						new Intent(TimedWifiActivity.this,
-								DisconnectReceiver.class);
-				PendingIntent tempSender =
-						PendingIntent.getBroadcast(TimedWifiActivity.this, 0,
-								tempIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+				Intent tempIntent = new Intent(TimedWifiActivity.this,
+						DisconnectReceiver.class);
+				PendingIntent tempSender = PendingIntent.getBroadcast(
+						TimedWifiActivity.this, 0, tempIntent,
+						PendingIntent.FLAG_UPDATE_CURRENT);
 
 				am.cancel(tempSender);
 
