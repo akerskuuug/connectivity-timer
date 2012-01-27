@@ -30,7 +30,7 @@
 	<!-- Timed Wi-Fi -->
 	<string name="action">Åtgärd</string>
 	<string name="timed_wf_tooltip_text">När tjänsten startas kommer Wi-Fi aktiveras eller inaktiveras under en bestämd tidsperiod. Efter denna tidsperiod kommer Wi-Fi återställas.</string>
-    <string name="timed_wf_duration">Varaktighet (minuter)</string>
+    <string name="timed_wf_duration">Varaktighet (timmar : minuter)</string>
     
     
 </resources>

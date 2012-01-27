@@ -47,7 +47,7 @@ public class DisconnectTimerActivity extends Activity {
 		tooltip = (TextView) findViewById(R.id.watcher_tooltip);
 
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-				this, com.connectivitytimer.R.array.durations_array,
+				this, com.connectivitytimer.R.array.watcher_durations_array,
 				R.layout.my_simple_spinner_item);
 
 		durationSpinner.setAdapter(adapter);
