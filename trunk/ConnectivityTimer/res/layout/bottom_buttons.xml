@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/timed_wf_buttons"
+		android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal" 
+	    android:gravity="center">
+	    <Button
+	        android:id="@+id/startbutton"
+	        android:layout_width="200dip"
+	        android:layout_height="50dip"
+	        android:text="@string/start" />
+	
+	    <Button
+	    	android:id="@+id/stopbutton"
+	    	android:layout_width="200dip"
+			android:layout_height="50dip"
+	    	android:text="@string/stop" />
+    </LinearLayout>

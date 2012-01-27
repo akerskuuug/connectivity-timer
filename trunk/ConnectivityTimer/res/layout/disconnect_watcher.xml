@@ -89,25 +89,7 @@
     </ScrollView>
     <!-- /Options -->
     
-    <!-- Buttons -->
-    <LinearLayout 
-        android:id="@+id/watcher_buttons"
-		android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:orientation="vertical" 
-	    android:gravity="center">
-	    <Button
-	        android:id="@+id/startbutton"
-	        android:layout_width="match_parent"
-	        android:layout_height="50dip"
-	        android:text="@string/start" />
-	
-	    <Button
-	    	android:id="@+id/stopbutton"
-	    	android:layout_width="match_parent"
-			android:layout_height="50dip"
-	    	android:text="@string/stop" />
-    </LinearLayout>
-    <!-- /Buttons -->
+     <!-- Buttons -->
+    <include layout="@layout/bottom_buttons"/>
+    
 </RelativeLayout>
