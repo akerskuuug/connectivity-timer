@@ -3,36 +3,36 @@
 
 	<!-- General -->
     <string name="app_name">Connectivity Manager</string>
-    <string name="enable_3g">Aktivera mobildata</string>
-    <string name="disable_3g">Inaktivera mobildata</string>
-    <string name="disable_service">Avsluta tjänsten</string>
-	<string name="start">Starta tjänst</string>
-	<string name="stop">Stoppa tjänst</string>
-	<string name="service_started">Tjänsten startad</string>
-	<string name="service_stopped">Tjänsten stoppad</string>
-    <string name="wifi_disable">Inaktivera Wi-Fi</string>
-	<string name="wifi_disabled">Wi-Fi inaktiverat</string>
-	<string name="wifi_enable">Aktivera Wi-Fi</string>
+    <string name="enable_3g">Enable mobile data</string>
+    <string name="disable_3g">Enable mobile data</string>
+    <string name="disable_service">Exit service</string>
+	<string name="start">Enable service</string>
+	<string name="stop">Disable service</string>
+	<string name="service_started">Service enabled</string>
+	<string name="service_stopped">Service disabled</string>
+    <string name="wifi_disable">Disable Wi-Fi</string>
+	<string name="wifi_disabled">Wi-Fi disabled</string>
+	<string name="wifi_enable">Enable Wi-Fi</string>
     
     <!-- Main -->
-	<string name="wf_timer_name">Övervaka Wi-Fi</string>
-	<string name="timed_3g_name">Tidsbegränsad mobildata</string>
-	<string name="timed_wf_name">Tidsbegränsad Wi-Fi</string>
+	<string name="wf_timer_name">Wi-Fi watcher</string>
+	<string name="timed_3g_name">Time-limited mobile data</string>
+	<string name="timed_wf_name">Time-limited Wi-Fi</string>
 	
 	<!-- Wi-Fi Watcher -->
-    <string name="retry_connection">Försök återuppkoppla med 30 minuters mellanrum </string>
-	<string name="set_disable_actions">När Wi-Fi inaktiveras</string>
-	<string name="watcher_tooltip_text">Wi-Fi startas automatiskt med tjänsten. \nNär tjänsten startas kommer den med jämna mellanrum kontrollera om Wi-Fi är anslutet till ett nätverk. Efter max</string>
-	<string name="watcher_tooltip_text_end">minuter utan uppkoppling kommer Wi-Fi stängas av.</string>
-	<string name="wifi_disable_delay">Fördröjning (minuter)</string>
-	<string name="wifi_disabled_lost_conn">Wi-Fi inaktiverat efter förlorad uppkoppling</string>
+    <string name="retry_connection">Retry connection every 30 minutes</string>
+	<string name="set_disable_actions">When Wi-Fi is disabled</string>
+	<string name="watcher_tooltip_text">Wi-Fi will be enabled automatically together with the service. \nWhen the service is started it will periodically check if Wi-Fi has a network connection. After a maximum of </string>
+	<string name="watcher_tooltip_text_end"> minutes without connection, Wi-Fi will be disabled.</string>
+	<string name="wifi_disable_delay">Delay (minutes)</string>
+	<string name="wifi_disabled_lost_conn">Wi-Fi disabled after connection was lost</string>
 	
 	<!-- Timed Wi-Fi -->
-	<string name="action">Åtgärd</string>
-	<string name="timed_wf_tooltip_text">När tjänsten startas kommer Wi-Fi aktiveras eller inaktiveras under en bestämd tidsperiod. Efter denna tidsperiod kommer Wi-Fi återställas.</string>
-    <string name="timed_wf_duration">Varaktighet (timmar : minuter)</string>
+	<string name="action">Action</string>
+	<string name="timed_wf_tooltip_text">When the service is started Wi-Fi will be enabled or disabled during a set period of time. After this time Wi-Fi status will be reset.</string>
+    <string name="timed_wf_duration">Duration (hours : minutes)</string>
     
     <!-- Timed 3G -->
-    <string name="timed_tg_tooltip_text">När tjänsten startas kommer mobildata aktiveras eller inaktiveras under en bestämd tidsperiod. Efter denna tidsperiod kommer mobildata återställas.</string>
+    <string name="timed_tg_tooltip_text">When the service is started mobile data will be enabled or disabled during a set period of time. After this time mobile data status will be reset.</string>
     
 </resources>
