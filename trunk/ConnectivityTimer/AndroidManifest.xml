@@ -4,7 +4,7 @@
     android:versionCode="1"
     android:versionName="0.6" >
 
-    <uses-sdk android:minSdkVersion="8" />
+    <uses-sdk android:minSdkVersion="9" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
  	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
  	<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"></uses-permission>
@@ -51,8 +51,10 @@
       
         
         
+        <receiver android:process=":remote" android:name=".alarm.TimedWifiReceiver" />
+        <receiver android:process=":remote" android:name=".alarm.Timed3GReceiver" />
         <receiver android:process=":remote" android:name=".alarm.DisconnectReceiver" />
-        <receiver android:process=":remote" android:name=".alarm.RetryReceiver.alarm.RetryReceiver" />
+        <receiver android:process=":remote" android:name=".alarm.RetryReceiver" />
     </application>
 
 	
