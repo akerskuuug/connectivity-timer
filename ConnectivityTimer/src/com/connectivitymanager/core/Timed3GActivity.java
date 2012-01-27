@@ -34,14 +34,18 @@ public class Timed3GActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.timed_tg);
 
-		final Spinner durationSpinner = (Spinner) findViewById(R.id.tg_duration_input);
+		final Spinner durationSpinner =
+				(Spinner) findViewById(R.id.tg_duration_input);
 		tooltip = (TextView) findViewById(R.id.timed_tg_tooltip);
 
 		am = (AlarmManager) getSystemService(ALARM_SERVICE);
 
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-				this, com.connectivitymanager.R.array.timed_wf_durations_array,
-				R.layout.my_simple_spinner_item);
+		ArrayAdapter<CharSequence> adapter =
+				ArrayAdapter
+						.createFromResource(
+								this,
+								com.connectivitymanager.R.array.timed_wf_durations_array,
+								R.layout.my_simple_spinner_item);
 
 		durationSpinner.setAdapter(adapter);
 		// Default delay is 30 minutes
@@ -54,14 +58,16 @@ public class Timed3GActivity extends Activity {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				String durationText = durationSpinner.getSelectedItem()
-						.toString();
+				String durationText =
+						durationSpinner.getSelectedItem().toString();
 				// Read the desired delay
-				durationHours = Integer.parseInt(durationText.substring(0,
-						durationText.indexOf(':')));
+				durationHours =
+						Integer.parseInt(durationText.substring(0,
+								durationText.indexOf(':')));
 
-				durationMinutes = Integer.parseInt(durationText
-						.substring(durationText.indexOf(':') + 1));
+				durationMinutes =
+						Integer.parseInt(durationText.substring(durationText
+								.indexOf(':') + 1));
 
 				tooltip.setText(getString(R.string.timed_tg_tooltip_text));
 			}
@@ -72,12 +78,13 @@ public class Timed3GActivity extends Activity {
 
 		});
 
-		Button startButton = (Button) findViewById(R.id.timed_tg_startbutton);
+		Button startButton = (Button) findViewById(R.id.startbutton);
 
 		startButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				RadioButton radio = (RadioButton) findViewById(R.id.tg_connect_check);
+				RadioButton radio =
+						(RadioButton) findViewById(R.id.tg_connect_check);
 				boolean checked = radio.isChecked();
 
 				Calendar cal = Calendar.getInstance();
@@ -85,16 +92,16 @@ public class Timed3GActivity extends Activity {
 				cal.add(Constants.DURATION * 60, durationHours);
 				cal.add(Constants.DURATION, durationMinutes);
 
-				Intent intent = new Intent(Timed3GActivity.this,
-						Timed3GReceiver.class);
+				Intent intent =
+						new Intent(Timed3GActivity.this, Timed3GReceiver.class);
 
 				intent.putExtra("tg_enable", !checked);
 
 				Tools.set3GEnabled(Timed3GActivity.this, checked);
 
-				PendingIntent sender = PendingIntent.getBroadcast(
-						Timed3GActivity.this, 0, intent,
-						PendingIntent.FLAG_UPDATE_CURRENT);
+				PendingIntent sender =
+						PendingIntent.getBroadcast(Timed3GActivity.this, 0,
+								intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 				Toast.makeText(getApplicationContext(),
 						getString(R.string.service_started), Toast.LENGTH_SHORT)
@@ -113,16 +120,17 @@ public class Timed3GActivity extends Activity {
 			}
 		});
 
-		Button stopButton = (Button) findViewById(R.id.timed_tg_stopbutton);
+		Button stopButton = (Button) findViewById(R.id.stopbutton);
 
 		stopButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Intent tempIntent = new Intent(Timed3GActivity.this,
-						DisconnectReceiver.class);
-				PendingIntent tempSender = PendingIntent.getBroadcast(
-						Timed3GActivity.this, 0, tempIntent,
-						PendingIntent.FLAG_UPDATE_CURRENT);
+				Intent tempIntent =
+						new Intent(Timed3GActivity.this,
+								DisconnectReceiver.class);
+				PendingIntent tempSender =
+						PendingIntent.getBroadcast(Timed3GActivity.this, 0,
+								tempIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 				am.cancel(tempSender);
 
