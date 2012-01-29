@@ -19,13 +19,15 @@ public class MainActivity extends Activity {
 		Button wifiWatcherButton = (Button) findViewById(R.id.wfwatcher_button);
 		Button timedWifiButton = (Button) findViewById(R.id.timed_wf_button);
 		Button timed3GButton = (Button) findViewById(R.id.timed_tg_button);
+		if (Integer.valueOf(android.os.Build.VERSION.SDK) <= 8) {
+			timed3GButton.setVisibility(View.GONE);
+		}
 
 		wifiWatcherButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Intent intent =
-						new Intent(MainActivity.this,
-								DisconnectTimerActivity.class);
+				Intent intent = new Intent(MainActivity.this,
+						DisconnectTimerActivity.class);
 				MainActivity.this.startActivity(intent);
 			}
 		});
@@ -33,8 +35,8 @@ public class MainActivity extends Activity {
 		timedWifiButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Intent intent =
-						new Intent(MainActivity.this, TimedWifiActivity.class);
+				Intent intent = new Intent(MainActivity.this,
+						TimedWifiActivity.class);
 				MainActivity.this.startActivity(intent);
 			}
 		});
@@ -42,8 +44,8 @@ public class MainActivity extends Activity {
 		timed3GButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Intent intent =
-						new Intent(MainActivity.this, Timed3GActivity.class);
+				Intent intent = new Intent(MainActivity.this,
+						Timed3GActivity.class);
 				MainActivity.this.startActivity(intent);
 			}
 		});
