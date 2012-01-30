@@ -5,6 +5,7 @@
     <string name="app_name">Connectivity Manager</string>
     <string name="enable_3g">Aktivera mobildata</string>
     <string name="disable_3g">Inaktivera mobildata</string>
+    <string name="tg">Mobildata</string>
     <string name="tg_enabled">Mobildata aktiverat</string>
     <string name="tg_disabled">Mobildata inaktiverat</string>
     <string name="disable_service">Avsluta tjänsten</string>
@@ -16,7 +17,8 @@
 	<string name="wifi_disabled">Wi-Fi inaktiverat</string>
 	<string name="wifi_enabled">Wi-Fi aktiverat</string>
 	<string name="wifi_enable">Aktivera Wi-Fi</string>
-    
+	<string name="wifi">Wi-Fi</string>
+	
     <!-- Main -->
 	<string name="wf_timer_name">Övervaka Wi-Fi</string>
 	<string name="timed_3g_name">Tidsbegränsad mobildata</string>

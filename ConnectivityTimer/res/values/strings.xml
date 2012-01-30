@@ -5,6 +5,7 @@
     <string name="app_name">Connectivity Manager</string>
     <string name="enable_3g">Enable mobile data</string>
     <string name="disable_3g">Disable mobile data</string>
+	<string name="tg">Mobile data</string>
     <string name="tg_enabled">Mobile data enabled</string>
     <string name="tg_disabled">Mobile data disabled</string>
     <string name="disable_service">Exit service</string>
@@ -16,6 +17,8 @@
 	<string name="wifi_disabled">Wi-Fi disabled</string>
 	<string name="wifi_enabled">Wi-Fi enabled</string>
 	<string name="wifi_enable">Enable Wi-Fi</string>
+	<string name="wifi">Wi-Fi</string>
+	
     
     <!-- Main -->
 	<string name="wf_timer_name">Wi-Fi watcher</string>
