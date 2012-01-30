@@ -9,11 +9,12 @@
     	android:layout_height="match_parent">
 	    <RelativeLayout 
 	 	   android:layout_width="match_parent"
-	 	   android:layout_height="wrap_content">
+	 	   android:layout_height="wrap_content"
+	 	   android:padding = "5dip">
 		   <Button 
 		        android:id="@+id/wfwatcher_button"
 		        android:layout_width="match_parent"
-		        android:layout_height="65dip"
+		        android:layout_height="60dip"
 		        android:layout_marginBottom="7dip"
 		        android:layout_marginTop="100dip"
 		        android:textSize="20dip"
@@ -23,7 +24,7 @@
 		        android:id="@+id/timed_wf_button"
 		        android:layout_below="@+id/wfwatcher_button"
 		        android:layout_width="match_parent"
-		        android:layout_height="65dip"
+		        android:layout_height="60dip"
 		        android:layout_marginBottom="7dip"
 		        android:textSize="20dip"
 		        android:text="@string/timed_wf_name"
@@ -32,7 +33,7 @@
 		        android:id="@+id/timed_tg_button"
 		        android:layout_below="@+id/timed_wf_button"
 		        android:layout_width="match_parent"
-		        android:layout_height="65dip"
+		        android:layout_height="60dip"
 		        android:layout_marginBottom="7dip"
 		        android:textSize="20dip"
 		        android:text="@string/timed_3g_name"
@@ -49,14 +50,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="15dip"
-		android:paddingLeft="30dip"
+		android:paddingLeft="45dip"
         android:text="@string/tg" 
         android:textSize="14dip"/>
      <CheckBox android:id="@+id/main_wifi_enable_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="15dip"
-		android:paddingLeft="30dip"
+		android:paddingLeft="45dip"
         android:text="@string/wifi" 
         android:textSize="14dip"/>
 </LinearLayout>
