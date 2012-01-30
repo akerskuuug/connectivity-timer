@@ -8,7 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiManager;
 
-import com.connectivitymanager.core.DisconnectTimerActivity;
+import com.connectivitymanager.core.TimedWifiActivity;
 
 public class TimedWifiReceiver extends BroadcastReceiver {
 
@@ -49,7 +49,7 @@ public class TimedWifiReceiver extends BroadcastReceiver {
 		// Decide what will be displayed in the notification bar
 		// and what will happen when the notification is clicked
 		Intent notificationIntent =
-				new Intent(context, DisconnectTimerActivity.class);
+				new Intent(context, TimedWifiActivity.class);
 		PendingIntent contentIntent =
 				PendingIntent.getActivity(context, 0, notificationIntent, 0);
 		notification.setLatestEventInfo(context, tickerText, description,
