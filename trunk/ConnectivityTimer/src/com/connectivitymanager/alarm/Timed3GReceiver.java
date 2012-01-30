@@ -7,7 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.connectivitymanager.core.DisconnectTimerActivity;
+import com.connectivitymanager.core.Timed3GActivity;
 import com.connectivitymanager.utility.Tools;
 
 public class Timed3GReceiver extends BroadcastReceiver {
@@ -45,8 +45,7 @@ public class Timed3GReceiver extends BroadcastReceiver {
 
 		// Decide what will be displayed in the notification bar
 		// and what will happen when the notification is clicked
-		Intent notificationIntent =
-				new Intent(context, DisconnectTimerActivity.class);
+		Intent notificationIntent = new Intent(context, Timed3GActivity.class);
 		PendingIntent contentIntent =
 				PendingIntent.getActivity(context, 0, notificationIntent, 0);
 		notification.setLatestEventInfo(context, tickerText, description,
