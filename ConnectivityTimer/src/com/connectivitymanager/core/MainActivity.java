@@ -3,7 +3,6 @@ package com.connectivitymanager.core;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.view.View;
@@ -46,8 +45,9 @@ public class MainActivity extends Activity {
 		wifiWatcherButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this,
-						DisconnectTimerActivity.class);
+				Intent intent =
+						new Intent(MainActivity.this,
+								DisconnectTimerActivity.class);
 				MainActivity.this.startActivity(intent);
 			}
 		});
@@ -55,8 +55,8 @@ public class MainActivity extends Activity {
 		timedWifiButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this,
-						TimedWifiActivity.class);
+				Intent intent =
+						new Intent(MainActivity.this, TimedWifiActivity.class);
 				MainActivity.this.startActivity(intent);
 			}
 		});
@@ -64,8 +64,8 @@ public class MainActivity extends Activity {
 		timed3GButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this,
-						Timed3GActivity.class);
+				Intent intent =
+						new Intent(MainActivity.this, Timed3GActivity.class);
 				MainActivity.this.startActivity(intent);
 			}
 		});
@@ -94,16 +94,11 @@ public class MainActivity extends Activity {
 	@Override
 	public void onResume() {
 		super.onResume();
-		ConnectivityManager netInfo = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-
-		android.net.NetworkInfo mobile = netInfo
-				.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-
-		check3G = (CheckBox) findViewById(R.id.main_threeg_enable_check);
 		checkWifi = (CheckBox) findViewById(R.id.main_wifi_enable_check);
 
 		// Set the checkboxes' status according to the network status
 		if (SDK_VERSION > 8) {
+			check3G = (CheckBox) findViewById(R.id.main_threeg_enable_check);
 			check3G.setChecked(Tools.get3GDataEnabled(this));
 		}
 		checkWifi.setChecked(wfMgr.isWifiEnabled());
