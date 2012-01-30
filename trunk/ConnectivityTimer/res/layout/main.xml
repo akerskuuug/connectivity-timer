@@ -4,34 +4,41 @@
     android:layout_height="match_parent"
     android:orientation="vertical" 
     android:gravity="center_vertical">
-    
-    <Button 
-        android:id="@+id/wfwatcher_button"
-        android:layout_width="match_parent"
-        android:layout_height="65dip"
-        android:layout_marginBottom="7dip"
-        android:layout_marginTop="100dip"
-        android:textSize="20dip"
-        android:text="@string/wf_timer_name"
-        />
-    <Button 
-        android:id="@+id/timed_wf_button"
-        android:layout_below="@+id/wfwatcher_button"
-        android:layout_width="match_parent"
-        android:layout_height="65dip"
-        android:layout_marginBottom="7dip"
-        android:textSize="20dip"
-        android:text="@string/timed_wf_name"
-        />
-    <Button 
-        android:id="@+id/timed_tg_button"
-        android:layout_below="@+id/timed_wf_button"
-        android:layout_width="match_parent"
-        android:layout_height="65dip"
-        android:layout_marginBottom="7dip"
-        android:textSize="20dip"
-        android:text="@string/timed_3g_name"
-     />
+    <ScrollView 
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent">
+	    <RelativeLayout 
+	 	   android:layout_width="match_parent"
+	 	   android:layout_height="wrap_content">
+		   <Button 
+		        android:id="@+id/wfwatcher_button"
+		        android:layout_width="match_parent"
+		        android:layout_height="65dip"
+		        android:layout_marginBottom="7dip"
+		        android:layout_marginTop="100dip"
+		        android:textSize="20dip"
+		        android:text="@string/wf_timer_name"
+		        />
+		    <Button 
+		        android:id="@+id/timed_wf_button"
+		        android:layout_below="@+id/wfwatcher_button"
+		        android:layout_width="match_parent"
+		        android:layout_height="65dip"
+		        android:layout_marginBottom="7dip"
+		        android:textSize="20dip"
+		        android:text="@string/timed_wf_name"
+		        />
+		    <Button 
+		        android:id="@+id/timed_tg_button"
+		        android:layout_below="@+id/timed_wf_button"
+		        android:layout_width="match_parent"
+		        android:layout_height="65dip"
+		        android:layout_marginBottom="7dip"
+		        android:textSize="20dip"
+		        android:text="@string/timed_3g_name"
+		     />
+	    </RelativeLayout>
+    </ScrollView>
 	<LinearLayout 
 	    android:id="@+id/toggle_buttons"
         android:layout_width="wrap_content"
