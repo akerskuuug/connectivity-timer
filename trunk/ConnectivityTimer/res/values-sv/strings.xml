@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
 	<!-- General -->
     <string name="app_name">Connectivity Manager</string>
     <string name="enable_3g">Aktivera mobildata</string>
     <string name="disable_3g">Inaktivera mobildata</string>
+    <string name="tg_enabled">Mobildata aktiverat</string>
+    <string name="tg_disabled">Mobildata inaktiverat</string>
     <string name="disable_service">Avsluta tjänsten</string>
 	<string name="start">Starta tjänst</string>
 	<string name="stop">Stoppa tjänst</string>
@@ -11,6 +14,7 @@
 	<string name="service_stopped">Tjänsten stoppad</string>
     <string name="wifi_disable">Inaktivera Wi-Fi</string>
 	<string name="wifi_disabled">Wi-Fi inaktiverat</string>
+	<string name="wifi_enabled">Wi-Fi aktiverat</string>
 	<string name="wifi_enable">Aktivera Wi-Fi</string>
     
     <!-- Main -->
@@ -30,8 +34,12 @@
 	<string name="action">Åtgärd</string>
 	<string name="timed_wf_tooltip_text">När tjänsten startas kommer Wi-Fi aktiveras eller inaktiveras under en bestämd tidsperiod. Efter denna tidsperiod kommer Wi-Fi återställas.</string>
     <string name="timed_wf_duration">Varaktighet (timmar : minuter)</string>
+	<string name="wifi_disabled_set_time">Wi-Fi inaktiverat efter bestämd tid</string>
+	<string name="wifi_enabled_set_time">Wi-Fi aktiverat efter bestämd tid</string>
     
     <!-- Timed 3G -->
     <string name="timed_tg_tooltip_text">När tjänsten startas kommer mobildata aktiveras eller inaktiveras under en bestämd tidsperiod. Efter denna tidsperiod kommer mobildata återställas.</string>
+	<string name="tg_disabled_set_time">Mobildata inaktiverat efter bestämd tid</string>
+	<string name="tg_enabled_set_time">Mobildata aktiverat efter bestämd tid</string>
     
 </resources>

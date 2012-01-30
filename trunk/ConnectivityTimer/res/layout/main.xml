@@ -9,6 +9,7 @@
         android:id="@+id/wfwatcher_button"
         android:layout_width="match_parent"
         android:layout_height="65dip"
+        android:layout_marginBottom="7dip"
         android:textSize="20dip"
         android:text="@string/wf_timer_name"
         />
@@ -17,6 +18,7 @@
         android:layout_below="@+id/wfwatcher_button"
         android:layout_width="match_parent"
         android:layout_height="65dip"
+        android:layout_marginBottom="7dip"
         android:textSize="20dip"
         android:text="@string/timed_wf_name"
         />
@@ -25,6 +27,7 @@
         android:layout_below="@+id/timed_wf_button"
         android:layout_width="match_parent"
         android:layout_height="65dip"
+        android:layout_marginBottom="7dip"
         android:textSize="20dip"
         android:text="@string/timed_3g_name"
         />

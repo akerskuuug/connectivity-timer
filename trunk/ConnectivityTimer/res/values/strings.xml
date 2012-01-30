@@ -4,7 +4,9 @@
 	<!-- General -->
     <string name="app_name">Connectivity Manager</string>
     <string name="enable_3g">Enable mobile data</string>
-    <string name="disable_3g">Enable mobile data</string>
+    <string name="disable_3g">Disable mobile data</string>
+    <string name="tg_enabled">Mobile data enabled</string>
+    <string name="tg_disabled">Mobile data disabled</string>
     <string name="disable_service">Exit service</string>
 	<string name="start">Enable service</string>
 	<string name="stop">Disable service</string>
@@ -12,6 +14,7 @@
 	<string name="service_stopped">Service disabled</string>
     <string name="wifi_disable">Disable Wi-Fi</string>
 	<string name="wifi_disabled">Wi-Fi disabled</string>
+	<string name="wifi_enabled">Wi-Fi enabled</string>
 	<string name="wifi_enable">Enable Wi-Fi</string>
     
     <!-- Main -->
@@ -31,8 +34,12 @@
 	<string name="action">Action</string>
 	<string name="timed_wf_tooltip_text">When the service is started Wi-Fi will be enabled or disabled during a set period of time. After this time Wi-Fi status will be reset.</string>
     <string name="timed_wf_duration">Duration (hours : minutes)</string>
+	<string name="wifi_disabled_set_time">Wi-Fi disabled after set time</string>
+	<string name="wifi_enabled_set_time">Wi-Fi enabled after set time</string>
     
     <!-- Timed 3G -->
     <string name="timed_tg_tooltip_text">When the service is started mobile data will be enabled or disabled during a set period of time. After this time mobile data status will be reset.</string>
+	<string name="tg_disabled_set_time">Mobile data disabled after set time</string>
+	<string name="tg_enabled_set_time">Mobile data enabled after set time</string>
     
 </resources>
