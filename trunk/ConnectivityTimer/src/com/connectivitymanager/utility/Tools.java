@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.util.Log;
 
 public class Tools {
+
 	public static void set3GEnabled(Context context, boolean enabled) {
 		ConnectivityManager cnMgr = (ConnectivityManager) context
 				.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -35,5 +36,21 @@ public class Tools {
 			}
 		}
 
+	}
+
+	public static boolean get3GDataEnabled(Context context) {
+		ConnectivityManager conManager = (ConnectivityManager) context
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+		try {
+
+			Method dataMtd = ConnectivityManager.class
+					.getDeclaredMethod("getMobileDataEnabled");
+			dataMtd.setAccessible(true);
+			return (Boolean) dataMtd.invoke(conManager);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 }
