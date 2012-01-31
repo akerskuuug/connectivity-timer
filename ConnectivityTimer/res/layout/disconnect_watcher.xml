@@ -19,7 +19,7 @@
     <ScrollView	
         android:id="@+id/watcher_scroll"
         android:layout_below="@+id/watcher_tooltip"
-        android:layout_above="@+id/watcher_buttons"
+        android:layout_above="@+id/bottom_buttons"
         android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
    		android:padding="5dip">
