@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -45,9 +47,8 @@ public class MainActivity extends Activity {
 		wifiWatcherButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Intent intent =
-						new Intent(MainActivity.this,
-								DisconnectTimerActivity.class);
+				Intent intent = new Intent(MainActivity.this,
+						DisconnectTimerActivity.class);
 				MainActivity.this.startActivity(intent);
 			}
 		});
@@ -55,8 +56,8 @@ public class MainActivity extends Activity {
 		timedWifiButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Intent intent =
-						new Intent(MainActivity.this, TimedWifiActivity.class);
+				Intent intent = new Intent(MainActivity.this,
+						TimedWifiActivity.class);
 				MainActivity.this.startActivity(intent);
 			}
 		});
@@ -64,8 +65,8 @@ public class MainActivity extends Activity {
 		timed3GButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Intent intent =
-						new Intent(MainActivity.this, Timed3GActivity.class);
+				Intent intent = new Intent(MainActivity.this,
+						Timed3GActivity.class);
 				MainActivity.this.startActivity(intent);
 			}
 		});
@@ -78,6 +79,16 @@ public class MainActivity extends Activity {
 
 			}
 		});
+		check3G.setOnLongClickListener(new OnLongClickListener() {
+
+			public boolean onLongClick(View v) {
+				Intent intent = new Intent(Intent.ACTION_MAIN);
+				intent.setClassName("com.android.phone",
+						"com.android.phone.Settings");
+				startActivity(intent);
+				return true;
+			}
+		});
 
 		checkWifi.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
@@ -86,6 +97,13 @@ public class MainActivity extends Activity {
 
 				wfMgr.setWifiEnabled(isChecked);
 
+			}
+		});
+		checkWifi.setOnLongClickListener(new OnLongClickListener() {
+
+			public boolean onLongClick(View v) {
+				startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+				return true;
 			}
 		});
 
