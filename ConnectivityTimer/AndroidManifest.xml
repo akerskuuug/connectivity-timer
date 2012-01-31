@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.connectivitymanager"
-    android:versionCode="4"
-    android:versionName="0.9" 
-    >
-
+    android:versionCode="15"
+    android:versionName="1.0">
     <uses-sdk android:minSdkVersion="7" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
  	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
@@ -14,6 +12,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" 
         >
+        
         
         <activity
             android:name=".core.MainActivity"
@@ -51,15 +50,9 @@
 
         	</intent-filter>
         </activity>
-      
-        
-        
         <receiver android:process=":remote" android:name=".alarm.TimedWifiReceiver" />
         <receiver android:process=":remote" android:name=".alarm.Timed3GReceiver" />
         <receiver android:process=":remote" android:name=".alarm.DisconnectReceiver" />
         <receiver android:process=":remote" android:name=".alarm.RetryReceiver" />
     </application>
-
-	
-    
 </manifest>
