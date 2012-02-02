@@ -6,7 +6,8 @@
     android:gravity="center_vertical">
     <ScrollView 
     	android:layout_width="match_parent"
-    	android:layout_height="match_parent">
+    	android:layout_height="match_parent"
+    	android:layout_above="@+id/toggle_buttons">
 	    <RelativeLayout 
 	 	   android:layout_width="match_parent"
 	 	   android:layout_height="wrap_content"
@@ -14,17 +15,26 @@
 		   <Button 
 		        android:id="@+id/wfwatcher_button"
 		        android:layout_width="match_parent"
-		        android:layout_height="60dip"
+		        android:layout_height="55dip"
 		        android:layout_marginBottom="7dip"
 		        android:layout_marginTop="100dip"
 		        android:textSize="20dip"
 		        android:text="@string/wf_timer_name"
 		        />
-		    <Button 
-		        android:id="@+id/timed_wf_button"
+		     <Button 
+		        android:id="@+id/scheduler_button"
 		        android:layout_below="@+id/wfwatcher_button"
 		        android:layout_width="match_parent"
-		        android:layout_height="60dip"
+		        android:layout_height="55dip"
+		        android:layout_marginBottom="7dip"
+		        android:textSize="20dip"
+		        android:text="@string/scheduler_name"
+		     />
+		    <Button 
+		        android:id="@+id/timed_wf_button"
+		        android:layout_below="@+id/scheduler_button"
+		        android:layout_width="match_parent"
+		        android:layout_height="55dip"
 		        android:layout_marginBottom="7dip"
 		        android:textSize="20dip"
 		        android:text="@string/timed_wf_name"
@@ -33,11 +43,13 @@
 		        android:id="@+id/timed_tg_button"
 		        android:layout_below="@+id/timed_wf_button"
 		        android:layout_width="match_parent"
-		        android:layout_height="60dip"
+		        android:layout_height="55dip"
 		        android:layout_marginBottom="7dip"
 		        android:textSize="20dip"
 		        android:text="@string/timed_3g_name"
 		     />
+		    
+		  
 	    </RelativeLayout>
     </ScrollView>
 	<LinearLayout 
