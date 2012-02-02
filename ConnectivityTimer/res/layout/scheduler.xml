@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+   	
+    
+    <TextView
+        android:id="@+id/scheduler_tooltip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        />
+    
+    <!-- Options -->
+    <ScrollView	
+        android:id="@+id/watcher_scroll"
+        android:layout_below="@+id/watcher_tooltip"
+        android:layout_above="@+id/bottom_buttons"
+        android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+   		android:padding="5dip">
+   		
+
+   		 <LinearLayout        
+	    	 android:layout_width="match_parent"
+	   		 android:layout_height="wrap_content"
+	   		 android:orientation="vertical"
+	   		 android:gravity="center">
+	   		 	<CheckBox 
+	   		 	    android:id="@+id/wf_check"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="left"
+					android:paddingLeft="45dip"
+			        android:text="@string/wifi_disable_between"
+			        android:textSize="13dip"/>
+			   <Spinner 
+			       android:id="@+id/wf_from_hours"
+			       android:layout_width="wrap_content"
+			       android:layout_height="wrap_content"/>
+			   <Spinner 
+			       android:id="@+id/wf_from_minutes"
+			       android:layout_width="wrap_content"
+			       android:layout_height="wrap_content"/>
+			   
+			   
+			   
+			   
+			   <CheckBox 
+			       	android:id="@+id/tg_check"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="left"
+					android:paddingLeft="45dip"
+			        android:text="@string/tg_disable_between"
+			        android:textSize="13dip"/>
+			   <TimePicker
+		        	android:id="@+id/tg_picker"
+		        	android:layout_width="wrap_content"
+		        	android:layout_height="wrap_content"/>
+	     </LinearLayout> 
+    </ScrollView>
+    <!-- /Options -->
+    
+     <!-- Buttons -->
+    <include layout="@layout/bottom_buttons"/>
+
+  
+    
+</RelativeLayout>

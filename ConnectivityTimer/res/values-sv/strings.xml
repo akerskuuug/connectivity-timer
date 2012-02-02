@@ -23,6 +23,9 @@
 	<string name="wf_timer_name">Övervaka Wi-Fi</string>
 	<string name="timed_3g_name">Tidsbegränsad mobildata</string>
 	<string name="timed_wf_name">Tidsbegränsad Wi-Fi</string>
+	<string name="scheduler_name">Schemalägg anslutningar</string>
+	
+	
 	
 	<!-- Wi-Fi Watcher -->
     <string name="retry_connection">Försök återuppkoppla med 30 minuters mellanrum </string>
@@ -31,6 +34,10 @@
 	<string name="watcher_tooltip_text_end">minuter utan uppkoppling kommer Wi-Fi stängas av.</string>
 	<string name="wifi_disable_delay">Fördröjning (minuter)</string>
 	<string name="wifi_disabled_lost_conn">Wi-Fi inaktiverat efter förlorad uppkoppling</string>
+	
+	<!-- Scheduler -->
+	<string name="wifi_disable_between">Inaktivera Wi-Fi mellan:</string>
+	<string name="tg_disable_between">Inaktivera mobildata mellan:</string>
 	
 	<!-- Timed Wi-Fi -->
 	<string name="action">Åtgärd</string>

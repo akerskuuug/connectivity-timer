@@ -24,6 +24,7 @@
 	<string name="wf_timer_name">Wi-Fi watcher</string>
 	<string name="timed_3g_name">Time-limited mobile data</string>
 	<string name="timed_wf_name">Time-limited Wi-Fi</string>
+	<string name="scheduler_name">Connection scheduler</string>
 	
 	<!-- Wi-Fi Watcher -->
     <string name="retry_connection">Retry connection every 30 minutes</string>
@@ -32,6 +33,10 @@
 	<string name="watcher_tooltip_text_end"> minutes without connection, Wi-Fi will be disabled.</string>
 	<string name="wifi_disable_delay">Delay (minutes)</string>
 	<string name="wifi_disabled_lost_conn">Wi-Fi disabled after connection was lost</string>
+	
+	<!-- Scheduler -->	
+	<string name="wifi_disable_between">Disable Wi-Fi between:</string>
+	<string name="tg_disable_between">Disable mobile data between:</string>
 	
 	<!-- Timed Wi-Fi -->
 	<string name="action">Action</string>
