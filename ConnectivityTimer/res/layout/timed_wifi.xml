@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@drawable/application_bg">
     
     <TextView
         android:id="@+id/timed_wf_tooltip"
@@ -11,7 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dip"
         android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
+        android:layout_marginRight="10dip"        			
+        android:textColor="#000000"
         />
     
     <!-- Options -->
@@ -32,7 +34,8 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:text="@string/timed_wf_duration"
-		        android:textSize="15dip"
+		        android:textSize="15dip"        			
+        		android:textColor="#000000"
 		        />    
 		        
 			<!-- Divider -->
@@ -63,7 +66,8 @@
 			        android:layout_height="wrap_content"
 					android:paddingLeft="45dip"
 			        android:text="@string/wifi_enable"
-			        android:textSize="13dip"
+			        android:textSize="13dip"        			
+       				android:textColor="#000000"
 			        android:checked="true"/>
 			    
 			     <RadioButton android:id="@+id/disconnect_check"
@@ -71,7 +75,8 @@
 			        android:layout_height="wrap_content"
 					android:paddingLeft="45dip"
 			        android:text="@string/wifi_disable"
-			        android:textSize="13dip"
+			        android:textSize="13dip"        			
+        			android:textColor="#000000"
 			        />
 		    </RadioGroup>
      	</LinearLayout>
