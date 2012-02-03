@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@drawable/application_bg">
     
     <TextView
         android:id="@+id/timed_tg_tooltip"
@@ -12,6 +13,7 @@
         android:layout_margin="5dip"
         android:layout_marginLeft="10dip"
         android:layout_marginRight="10dip"
+        android:textColor="#000000"
         />
     
     <!-- Options -->
@@ -33,6 +35,7 @@
 		        android:layout_height="wrap_content"
 		        android:text="@string/timed_wf_duration"
 		        android:textSize="15dip"
+        		android:textColor="#000000"
 		        />    
 		        
 			<!-- Divider -->
@@ -49,7 +52,8 @@
 		        android:layout_height="wrap_content"
 		        android:layout_marginTop="20dip"
 		        android:text="@string/action"
-		        android:textSize="15dip"/>
+		        android:textSize="15dip"
+        		android:textColor="#000000"/>
 		    
 		    
 		    <!-- Divider -->
@@ -64,7 +68,9 @@
 					android:paddingLeft="45dip"
 			        android:text="@string/enable_3g"
 			        android:textSize="13dip"
-			        android:checked="true"/>
+       				android:textColor="#000000"
+			        android:checked="true"
+			        android:button="@drawable/radio_button_bg"/>
 			    
 			     <RadioButton android:id="@+id/tg_disconnect_check"
 			        android:layout_width="wrap_content"
@@ -72,7 +78,8 @@
 					android:paddingLeft="45dip"
 			        android:text="@string/disable_3g"
 			        android:textSize="13dip"
-			        />
+        			android:textColor="#000000"
+			        android:button="@drawable/radio_button_bg"/>
 		    </RadioGroup>
      	</LinearLayout>
     </ScrollView>

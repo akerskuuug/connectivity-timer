@@ -14,7 +14,7 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="50dip" 
 	        android:layout_weight="1"
-	        android:layout_marginRight="2dip"
+	        android:background="@drawable/button_bg"
 	        android:text="@string/start"/>
 	
 	    <Button
@@ -22,6 +22,6 @@
 	    	android:layout_width="match_parent"
 			android:layout_height="50dip"
 	    	android:layout_weight="1"
-	        android:layout_marginLeft="2dip"
+	        android:background="@drawable/button_bg"
 	    	android:text="@string/stop" />
     </LinearLayout>

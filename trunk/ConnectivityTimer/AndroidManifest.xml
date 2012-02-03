@@ -16,6 +16,7 @@
         
         <activity
             android:name=".core.MainActivity"
+            android:theme="@android:style/Theme.NoTitleBar"
            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +27,8 @@
         
         <activity
             android:name=".core.DisconnectTimerActivity"
-            android:label="@string/wf_timer_name" >
+            android:label="@string/wf_timer_name" 
+            android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="com.connectivitymanager.core.WIFIWATCHER" />
 
@@ -35,7 +37,8 @@
         
         <activity
         	android:name=".core.TimedWifiActivity"
-        	android:label="@string/timed_wf_name" >
+        	android:label="@string/timed_wf_name"
+            android:theme="@android:style/Theme.NoTitleBar" >
         	<intent-filter>
         		<action android:name="com.connectivitymanager.core.TIMED_WIFI" />
 
@@ -44,7 +47,8 @@
       
         <activity
         	android:name=".core.Timed3GActivity"
-        	android:label="@string/timed_3g_name" >
+        	android:label="@string/timed_3g_name" 
+            android:theme="@android:style/Theme.NoTitleBar">
         	<intent-filter>
         		<action android:name="com.connectivitymanager.core.TIMED_3G" />
 
