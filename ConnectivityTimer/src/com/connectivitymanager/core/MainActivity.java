@@ -32,6 +32,7 @@ public class MainActivity extends Activity {
 		Button wifiWatcherButton = (Button) findViewById(R.id.wfwatcher_button);
 		Button timedWifiButton = (Button) findViewById(R.id.timed_wf_button);
 		Button timed3GButton = (Button) findViewById(R.id.timed_tg_button);
+		Button schedulerButton = (Button) findViewById(R.id.scheduler_button);
 		check3G = (CheckBox) findViewById(R.id.main_threeg_enable_check);
 		checkWifi = (CheckBox) findViewById(R.id.main_wifi_enable_check);
 
@@ -49,6 +50,15 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				Intent intent = new Intent(MainActivity.this,
 						DisconnectTimerActivity.class);
+				MainActivity.this.startActivity(intent);
+			}
+		});
+
+		schedulerButton.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this,
+						SchedulerActivity.class);
 				MainActivity.this.startActivity(intent);
 			}
 		});
