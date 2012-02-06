@@ -28,7 +28,7 @@ import com.connectivitymanager.utility.Constants;
 public class TimedWifiActivity extends Activity {
 
 	private TextView tooltip;
-	private int durationHours, durationMinutes;
+	private int durationHours = 0, durationMinutes = 0;
 	private AlarmManager am;
 
 	@Override
@@ -90,7 +90,7 @@ public class TimedWifiActivity extends Activity {
 				boolean checked = radio.isChecked();
 				Calendar cal = Calendar.getInstance();
 
-				cal.add(Constants.DURATION * 60, durationHours);
+				cal.add(Calendar.HOUR, durationHours);
 				cal.add(Constants.DURATION, durationMinutes);
 
 				Intent intent =
@@ -145,4 +145,5 @@ public class TimedWifiActivity extends Activity {
 		});
 
 	}
+
 }
