@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@drawable/application_bg">
 
    	
     
@@ -37,7 +38,8 @@
 			        android:layout_gravity="left"
 					android:paddingLeft="45dip"
 			        android:text="@string/wifi_disable_between"
-			        android:textSize="13dip"/>
+			        android:textSize="13dip"       			
+        			android:textColor="#000000"/>
 			    <!-- Divider -->
 			  	<include layout="@layout/divider"/>
 			    <LinearLayout 
@@ -47,13 +49,19 @@
 	   		 		android:gravity="center">
 			  	
 				   <Spinner 
-				       android:id="@+id/wf_from_spinner"
-				       android:layout_width="wrap_content"
-				       android:layout_height="wrap_content"/>
+				  	    android:id="@+id/wf_from_spinner"
+					    android:layout_width="wrap_content"
+				    	android:layout_height="wrap_content"
+						android:paddingLeft="20dip" 
+						android:paddingRight="50dip" 
+					    android:background="@drawable/spinner_bg"/>
 				   <Spinner 
-				       android:id="@+id/wf_to_spinner"
-				       android:layout_width="wrap_content"
-				       android:layout_height="wrap_content"/>
+				       	android:id="@+id/wf_to_spinner"
+				       	android:layout_width="wrap_content"
+				    	android:layout_height="wrap_content"
+						android:paddingLeft="20dip" 
+						android:paddingRight="50dip" 
+					    android:background="@drawable/spinner_bg"/>
 			   </LinearLayout>
 			   
 			   
@@ -65,7 +73,8 @@
 			        android:layout_gravity="left"
 					android:paddingLeft="45dip"
 			        android:text="@string/tg_disable_between"
-			        android:textSize="13dip"/>
+			        android:textSize="13dip"       			
+        			android:textColor="#000000"/>
 			    <!-- Divider -->
 			  	<include layout="@layout/divider"/>
 			    <LinearLayout 
@@ -76,11 +85,17 @@
 			   	<Spinner 
 			     	android:id="@+id/tg_from_spinner"
 			       	android:layout_width="wrap_content"
-			       	android:layout_height="wrap_content"/>
+			       	android:layout_height="wrap_content"
+					android:paddingLeft="20dip" 
+					android:paddingRight="50dip" 
+				    android:background="@drawable/spinner_bg"/>
 			   	<Spinner 
 			       	android:id="@+id/tg_to_spinner"
 			       	android:layout_width="wrap_content"
-			       	android:layout_height="wrap_content"/>
+			       	android:layout_height="wrap_content"
+					android:paddingLeft="20dip" 
+					android:paddingRight="50dip" 
+				    android:background="@drawable/spinner_bg"/>
 			   </LinearLayout>
 	     </LinearLayout> 
     </ScrollView>

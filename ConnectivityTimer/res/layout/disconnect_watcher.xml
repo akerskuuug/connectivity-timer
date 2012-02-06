@@ -43,7 +43,9 @@
 			        android:id="@+id/duration_input"
 			        android:layout_marginTop="10dip"
 			        android:layout_width="150dip"
-			        android:layout_height="wrap_content"/>
+			        android:layout_height="wrap_content" 
+			        android:paddingLeft="20dip" 
+			        android:background="@drawable/spinner_bg"/>
 			    
 			    <TextView 
 			        android:layout_width="wrap_content"
@@ -61,6 +63,7 @@
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
 					android:paddingLeft="45dip"
+					android:button="@drawable/check_button_bg"
 			        android:text="@string/retry_connection"
         			android:textColor="#000000"
 			        android:textSize="13dip"/>
@@ -69,6 +72,7 @@
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
 					android:paddingLeft="45dip"
+					android:button="@drawable/check_button_bg"
 			        android:text="@string/disable_service"
         			android:textColor="#000000"
 			        android:textSize="13dip"
@@ -81,6 +85,7 @@
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
 					android:paddingLeft="45dip"
+					android:button="@drawable/check_button_bg"
 			        android:text="@string/enable_3g" 
         			android:textColor="#000000"
 			        android:textSize="13dip"/>
@@ -88,6 +93,7 @@
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
 					android:paddingLeft="45dip"
+					android:button="@drawable/check_button_bg"
 			        android:text="@string/disable_3g" 
         			android:textColor="#000000" 
 			        android:textSize="13dip"/>
