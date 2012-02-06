@@ -40,7 +40,7 @@
             android:name=".core.SchedulerActivity"
             android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
-                <action android:name="com.connectivitymanager.core.SCHEDULER" />
+                <action android:name="com.connectivitymanager.core.CONN_SCHEDULER" />
 
             </intent-filter>
         </activity>
@@ -66,6 +66,10 @@
         <receiver android:process=":remote" android:name=".alarm.TimedWifiReceiver" />
         <receiver android:process=":remote" android:name=".alarm.Timed3GReceiver" />
         <receiver android:process=":remote" android:name=".alarm.DisconnectReceiver" />
+        <receiver android:process=":remote" android:name=".alarm.ScheduleWifiEnableReceiver" />
+        <receiver android:process=":remote" android:name=".alarm.ScheduleWifiDisableReceiver" />
+        <receiver android:process=":remote" android:name=".alarm.Schedule3GEnableReceiver" />
+        <receiver android:process=":remote" android:name=".alarm.Schedule3GDisableReceiver" />
         <receiver android:process=":remote" android:name=".alarm.RetryReceiver" />
     </application>
 </manifest>

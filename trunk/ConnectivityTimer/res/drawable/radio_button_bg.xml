@@ -8,6 +8,7 @@
      
      <!-- Focused -->
      <item android:state_focused="true"
+           android:state_checked="false"
            android:drawable="@drawable/radio_off_pressed" /> 
        
      

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <selector xmlns:android="http://schemas.android.com/apk/res/android">
+     <!-- Pressed (off)-->
+     <item 
+         android:state_pressed="true"
+         android:state_checked="false"
+         android:drawable="@drawable/check_pressed" /> 
+         
+      <!-- Pressed (on)-->
+     <item 
+         android:state_pressed="true"
+         android:state_checked="true"
+         android:drawable="@drawable/check_on_pressed" /> 
+     
+     <!-- Focused (off)-->
+     <item android:state_focused="true"
+           android:state_checked="false"
+           android:drawable="@drawable/check_pressed" /> 
+           
+     <!-- Focused (on)-->
+     <item android:state_focused="true"
+           android:state_checked="true"
+           android:drawable="@drawable/check_on_pressed" /> 
+       
+     
+     <!-- Checked -->
+     <item android:state_checked="true"
+           android:drawable="@drawable/check_on" /> 
+     
+     
+     <!-- Default -->
+     <item android:drawable="@drawable/check_off" /> 
+ </selector>

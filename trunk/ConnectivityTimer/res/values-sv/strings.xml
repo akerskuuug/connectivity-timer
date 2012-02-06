@@ -25,8 +25,7 @@
 	<string name="timed_wf_name">Tidsbegränsad Wi-Fi</string>
 	<string name="scheduler_name">Schemalägg anslutningar</string>
 	
-	
-	
+
 	<!-- Wi-Fi Watcher -->
     <string name="retry_connection">Försök återuppkoppla med 30 minuters mellanrum </string>
 	<string name="set_disable_actions">När Wi-Fi inaktiveras</string>
@@ -37,7 +36,11 @@
 	
 	<!-- Scheduler -->
 	<string name="wifi_disable_between">Inaktivera Wi-Fi mellan:</string>
-	<string name="tg_disable_between">Inaktivera mobildata mellan:</string>
+	<string name="tg_disable_between">Inaktivera mobildata mellan:</string>	
+	<string name="tg_enabled_schedule">Mobildata aktiverat enligt schema</string>
+	<string name="tg_disabled_schedule">Mobildata inaktiverat enligt schema</string>
+	<string name="wf_enabled_schedule">Wi-Fi aktiverat enligt schema</string>
+	<string name="wf_disabled_schedule">Wi-Fi inaktiverat enligt schema</string>
 	
 	<!-- Timed Wi-Fi -->
 	<string name="action">Åtgärd</string>
