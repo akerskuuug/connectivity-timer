@@ -89,7 +89,7 @@ public class Timed3GActivity extends Activity {
 
 				Calendar cal = Calendar.getInstance();
 
-				cal.add(Constants.DURATION * 60, durationHours);
+				cal.add(Calendar.HOUR, durationHours);
 				cal.add(Constants.DURATION, durationMinutes);
 
 				Intent intent =
@@ -141,4 +141,5 @@ public class Timed3GActivity extends Activity {
 		});
 
 	}
+
 }
