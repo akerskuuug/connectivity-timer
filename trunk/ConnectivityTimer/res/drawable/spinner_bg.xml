@@ -2,11 +2,11 @@
  <selector xmlns:android="http://schemas.android.com/apk/res/android">
      <!-- pressed -->
      <item android:state_pressed="true"
-           android:drawable="@drawable/spinner_pressed" /> 
+           android:drawable="@drawable/spinner_pressed"/> 
      
      <!-- Focused-->
      <item android:state_focused="true"
-           android:drawable="@drawable/spinner_pressed" /> 
+           android:drawable="@drawable/spinner_focused" /> 
      
      <!-- default -->
      <item android:drawable="@drawable/spinner" /> 
