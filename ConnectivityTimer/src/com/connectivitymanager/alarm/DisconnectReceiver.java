@@ -2,16 +2,15 @@ package com.connectivitymanager.alarm;
 
 import java.util.Calendar;
 
+import android.app.Activity;
 import android.app.AlarmManager;
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.connectivitymanager.core.DisconnectTimerActivity;
 import com.connectivitymanager.utility.Constants;
@@ -32,13 +31,16 @@ public class DisconnectReceiver extends BroadcastReceiver {
 		// Get the maximum number of repeats, to turn off Wi-Fi at the right
 		// time
 		Bundle extras = intent.getExtras();
-		int repeats = extras.getInt("alarm_repeats", 0);
-		int maxRepeats = extras.getInt("max_repeats", 3);
-		boolean retry = extras.getBoolean("retry", false);
-		boolean exit = extras.getBoolean("exit", true);
-		boolean t_g_enable = extras.getBoolean("tgenable", false);
-		boolean t_g_disable = extras.getBoolean("tgdisable", false);
-		boolean dis_by_this = extras.getBoolean("disabled_by_this", false);
+		int repeats = extras.getInt(Constants.WATCHER_ALARM_REPEATS, 0);
+		int maxRepeats = extras.getInt(Constants.WATCHER_MAX_REPEATS, 3);
+		boolean retry = extras.getBoolean(Constants.WATCHER_RETRY, false);
+		boolean exit = extras.getBoolean(Constants.WATCHER_EXIT, true);
+		boolean t_g_enable =
+				extras.getBoolean(Constants.WATCHER_3G_ENABLE, false);
+		boolean t_g_disable =
+				extras.getBoolean(Constants.WATCHER_3G_DISABLE, false);
+		boolean dis_by_this =
+				extras.getBoolean(Constants.WATCHER_DISABLED_BY_THIS, false);
 
 		repeats++;
 
@@ -60,35 +62,12 @@ public class DisconnectReceiver extends BroadcastReceiver {
 
 					}
 
-					NotificationManager nm =
-							(NotificationManager) context
-									.getSystemService(Context.NOTIFICATION_SERVICE);
-
-					// Create the visuals for the notification
-					int icon = android.R.drawable.star_on;
-					CharSequence tickerText =
-							context.getString(com.connectivitymanager.R.string.wifi_disabled);
-					long when = System.currentTimeMillis();
-					Notification notification =
-							new Notification(icon, tickerText, when);
-
-					// Decide what will be displayed in the notification bar
-					// and what will happen when the notification is clicked
-					Intent notificationIntent =
-							new Intent(context, DisconnectTimerActivity.class);
-					PendingIntent contentIntent =
-							PendingIntent.getActivity(context, 0,
-									notificationIntent, 0);
-					notification
-							.setLatestEventInfo(
-									context,
-									context.getString(com.connectivitymanager.R.string.wifi_disabled),
-									context.getString(com.connectivitymanager.R.string.wifi_disabled_lost_conn),
-									contentIntent);
-					notification.flags |= Notification.FLAG_AUTO_CANCEL;
-
-					// Show the notification
-					nm.notify(3216, notification);
+					Tools.showNotification(
+							context,
+							DisconnectTimerActivity.class,
+							context.getString(com.connectivitymanager.R.string.wifi_disabled),
+							context.getString(com.connectivitymanager.R.string.wifi_disabled_lost_conn),
+							3216);
 
 					repeats = 0;
 					dis_by_this = true;
@@ -104,29 +83,35 @@ public class DisconnectReceiver extends BroadcastReceiver {
 				// next time
 				cal.add(Constants.DURATION, 15);
 				repeats = 0;
-				Log.d("AlarmReceiver onReceive", "Connected");
 			}
 
 		} else if (!exit) {
 
 			cal.add(Constants.DURATION, 15);
 
+		} else if (exit) {
+			// Save the preferences so that the service does not look activated
+			// when opening setup screen
+			SharedPreferences settings =
+					context.getSharedPreferences(Constants.SHARED_PREFS_NAME,
+							Activity.MODE_PRIVATE);
+			SharedPreferences.Editor editor = settings.edit();
+			editor.putBoolean(Constants.WATCHER_ENABLED, false);
+			editor.commit();
 		}
 
 		if (!wfMgr.isWifiEnabled() && retry && dis_by_this) {
 
 			cal.add(Constants.DURATION, 30);
 
-			Log.d("RetryReceiver", "send");
-
 			// Construct the next alarm
 			Intent retryIntent = new Intent(context, RetryReceiver.class);
-			retryIntent.putExtra("alarm_repeats", repeats);
-			retryIntent.putExtra("max_repeats", maxRepeats);
-			retryIntent.putExtra("retry", retry);
-			retryIntent.putExtra("exit", exit);
-			retryIntent.putExtra("tgenable", t_g_enable);
-			retryIntent.putExtra("tgdisable", t_g_disable);
+			retryIntent.putExtra(Constants.WATCHER_ALARM_REPEATS, repeats);
+			retryIntent.putExtra(Constants.WATCHER_MAX_REPEATS, maxRepeats);
+			retryIntent.putExtra(Constants.WATCHER_RETRY, retry);
+			retryIntent.putExtra(Constants.WATCHER_EXIT, exit);
+			retryIntent.putExtra(Constants.WATCHER_3G_ENABLE, t_g_enable);
+			retryIntent.putExtra(Constants.WATCHER_3G_DISABLE, t_g_disable);
 
 			PendingIntent retrySender =
 					PendingIntent.getBroadcast(context, 0, retryIntent,
@@ -142,13 +127,14 @@ public class DisconnectReceiver extends BroadcastReceiver {
 			// Construct the next alarm
 			Intent nextAlarmIntent =
 					new Intent(context, DisconnectReceiver.class);
-			nextAlarmIntent.putExtra("alarm_repeats", repeats);
-			nextAlarmIntent.putExtra("max_repeats", maxRepeats);
-			nextAlarmIntent.putExtra("retry", retry);
-			nextAlarmIntent.putExtra("exit", exit);
-			nextAlarmIntent.putExtra("tgenable", t_g_enable);
-			nextAlarmIntent.putExtra("tgdisable", t_g_disable);
-			nextAlarmIntent.putExtra("disabled_by_this", dis_by_this);
+			nextAlarmIntent.putExtra(Constants.WATCHER_ALARM_REPEATS, repeats);
+			nextAlarmIntent.putExtra(Constants.WATCHER_MAX_REPEATS, maxRepeats);
+			nextAlarmIntent.putExtra(Constants.WATCHER_RETRY, retry);
+			nextAlarmIntent.putExtra(Constants.WATCHER_EXIT, exit);
+			nextAlarmIntent.putExtra(Constants.WATCHER_3G_ENABLE, t_g_enable);
+			nextAlarmIntent.putExtra(Constants.WATCHER_3G_DISABLE, t_g_disable);
+			nextAlarmIntent.putExtra(Constants.WATCHER_DISABLED_BY_THIS,
+					dis_by_this);
 
 			PendingIntent sender =
 					PendingIntent.getBroadcast(context, 0, nextAlarmIntent,

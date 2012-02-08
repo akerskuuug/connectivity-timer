@@ -13,7 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dip"
         android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
+        android:layout_marginRight="10dip"    			
+        android:textColor="#000000"
+        android:text="@string/scheduler_tooltip_text"
         />
     
     <!-- Options -->
@@ -37,6 +39,7 @@
 			        android:layout_height="wrap_content"
 			        android:layout_gravity="left"
 					android:paddingLeft="45dip"
+					android:button="@drawable/check_button_bg"
 			        android:text="@string/wifi_disable_between"
 			        android:textSize="13dip"       			
         			android:textColor="#000000"/>
@@ -45,6 +48,7 @@
 			    <LinearLayout 
 	    	 		android:layout_width="match_parent"
 	   		 		android:layout_height="wrap_content"
+	   		 		android:layout_marginBottom="20dip"
 	   		 		android:orientation="horizontal"
 	   		 		android:gravity="center">
 			  	
@@ -55,6 +59,16 @@
 						android:paddingLeft="20dip" 
 						android:paddingRight="50dip" 
 					    android:background="@drawable/spinner_bg"/>
+				    <TextView
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:layout_margin="5dip"
+				        android:layout_marginLeft="15dip"
+				        android:layout_marginRight="15dip"
+				        android:textColor="#000000"
+				        android:textSize="15dip"
+				        android:text="@string/and"
+				   />
 				   <Spinner 
 				       	android:id="@+id/wf_to_spinner"
 				       	android:layout_width="wrap_content"
@@ -72,6 +86,7 @@
 			        android:layout_height="wrap_content"
 			        android:layout_gravity="left"
 					android:paddingLeft="45dip"
+					android:button="@drawable/check_button_bg"
 			        android:text="@string/tg_disable_between"
 			        android:textSize="13dip"       			
         			android:textColor="#000000"/>
@@ -88,7 +103,17 @@
 			       	android:layout_height="wrap_content"
 					android:paddingLeft="20dip" 
 					android:paddingRight="50dip" 
-				    android:background="@drawable/spinner_bg"/>
+				    android:background="@drawable/spinner_bg"/> 
+				<TextView
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_margin="5dip"
+			        android:layout_marginLeft="15dip"
+			        android:layout_marginRight="15dip"
+			        android:textColor="#000000"
+			        android:textSize="15dip"
+			        android:text="@string/and"
+				   />
 			   	<Spinner 
 			       	android:id="@+id/tg_to_spinner"
 			       	android:layout_width="wrap_content"

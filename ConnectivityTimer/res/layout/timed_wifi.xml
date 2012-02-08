@@ -54,7 +54,8 @@
 		        android:layout_height="wrap_content"
 		        android:layout_marginTop="20dip"
 		        android:text="@string/action"
-		        android:textSize="15dip"/>
+		        android:textSize="15dip"    			
+       			android:textColor="#000000"/>
 		    
 		    
 		    <!-- Divider -->
@@ -70,7 +71,7 @@
 			        android:text="@string/wifi_enable"
 			        android:textSize="13dip"        			
        				android:textColor="#000000"
-			        android:checked="true"/>
+			        android:button="@drawable/radio_button_bg"/>
 			    
 			     <RadioButton android:id="@+id/disconnect_check"
 			        android:layout_width="wrap_content"
@@ -79,6 +80,7 @@
 			        android:text="@string/wifi_disable"
 			        android:textSize="13dip"        			
         			android:textColor="#000000"
+			        android:button="@drawable/radio_button_bg"
 			        />
 		    </RadioGroup>
      	</LinearLayout>

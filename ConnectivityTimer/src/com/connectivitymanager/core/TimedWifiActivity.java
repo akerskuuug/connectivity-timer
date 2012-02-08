@@ -7,6 +7,8 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.view.View;
@@ -30,15 +32,21 @@ public class TimedWifiActivity extends Activity {
 	private TextView tooltip;
 	private int durationHours = 0, durationMinutes = 0;
 	private AlarmManager am;
+	private Button startButton;
+	private SharedPreferences settings;
+	private Editor editor;
+	private Spinner durationSpinner;
+	private RadioButton enableRadio, disableRadio;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.timed_wifi);
 
-		final Spinner durationSpinner =
-				(Spinner) findViewById(R.id.duration_input);
+		durationSpinner = (Spinner) findViewById(R.id.duration_input);
 		tooltip = (TextView) findViewById(R.id.timed_wf_tooltip);
+		enableRadio = (RadioButton) findViewById(R.id.connect_check);
+		disableRadio = (RadioButton) findViewById(R.id.disconnect_check);
 
 		am = (AlarmManager) getSystemService(ALARM_SERVICE);
 
@@ -80,14 +88,13 @@ public class TimedWifiActivity extends Activity {
 
 		});
 
-		Button startButton = (Button) findViewById(R.id.startbutton);
+		startButton = (Button) findViewById(R.id.startbutton);
 
 		startButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				RadioButton radio =
-						(RadioButton) findViewById(R.id.connect_check);
-				boolean checked = radio.isChecked();
+
+				boolean checked = enableRadio.isChecked();
 				Calendar cal = Calendar.getInstance();
 
 				cal.add(Calendar.HOUR, durationHours);
@@ -97,7 +104,7 @@ public class TimedWifiActivity extends Activity {
 						new Intent(TimedWifiActivity.this,
 								TimedWifiReceiver.class);
 
-				intent.putExtra("wifi_enable", !checked);
+				intent.putExtra(Constants.TIMED_WF_ENABLE_WIFI, !checked);
 
 				WifiManager wfMgr =
 						(WifiManager) getSystemService(Context.WIFI_SERVICE);
@@ -121,6 +128,16 @@ public class TimedWifiActivity extends Activity {
 						getString(R.string.service_started), Toast.LENGTH_SHORT)
 						.show();
 
+				// Save the current state of this activity in shared preferences
+				startButton.setEnabled(false);
+				editor.putBoolean(Constants.TIMED_WF_ENABLED, true);
+				editor.putBoolean(Constants.TIMED_WF_ENABLE_WIFI,
+						enableRadio.isChecked());
+				editor.putBoolean(Constants.TIMED_WF_DISABLE_WIFI,
+						disableRadio.isChecked());
+				editor.putInt(Constants.TIMED_WF_DURATION,
+						durationSpinner.getSelectedItemPosition());
+				editor.commit();
 			}
 		});
 
@@ -141,9 +158,36 @@ public class TimedWifiActivity extends Activity {
 				Toast.makeText(getApplicationContext(),
 						getString(R.string.service_stopped), Toast.LENGTH_SHORT)
 						.show();
+				// Save the current state of this activity in shared preferences
+				startButton.setEnabled(true);
+				editor.putBoolean(Constants.TIMED_WF_ENABLED, false);
+				editor.commit();
 			}
 		});
 
 	}
 
+	@Override
+	public void onResume() {
+		super.onResume();
+		settings =
+				getSharedPreferences(Constants.SHARED_PREFS_NAME,
+						Activity.MODE_PRIVATE);
+		editor = settings.edit();
+
+		// See if this service is enabled. If it is, disable the
+		// "enable service" button
+		boolean isEnabled =
+				settings.getBoolean(Constants.TIMED_WF_ENABLED, false);
+		startButton.setEnabled(!isEnabled);
+
+		durationSpinner.setSelection(settings.getInt(
+				Constants.TIMED_WF_DURATION, 0));
+
+		enableRadio.setChecked(settings.getBoolean(
+				Constants.TIMED_WF_ENABLE_WIFI, true));
+
+		disableRadio.setChecked(settings.getBoolean(
+				Constants.TIMED_WF_DISABLE_WIFI, false));
+	}
 }

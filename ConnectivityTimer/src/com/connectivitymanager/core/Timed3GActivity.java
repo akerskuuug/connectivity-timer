@@ -6,6 +6,8 @@ import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,16 +30,21 @@ public class Timed3GActivity extends Activity {
 	private TextView tooltip;
 	private int durationHours, durationMinutes;
 	private AlarmManager am;
+	private SharedPreferences settings;
+	private Editor editor;
+	private Button startButton;
+	private Spinner durationSpinner;
+	private RadioButton enableRadio, disableRadio;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.timed_tg);
 
-		final Spinner durationSpinner =
-				(Spinner) findViewById(R.id.tg_duration_input);
+		durationSpinner = (Spinner) findViewById(R.id.tg_duration_input);
 		tooltip = (TextView) findViewById(R.id.timed_tg_tooltip);
-
+		enableRadio = (RadioButton) findViewById(R.id.tg_connect_check);
+		disableRadio = (RadioButton) findViewById(R.id.tg_disconnect_check);
 		am = (AlarmManager) getSystemService(ALARM_SERVICE);
 
 		ArrayAdapter<CharSequence> adapter =
@@ -78,14 +85,13 @@ public class Timed3GActivity extends Activity {
 
 		});
 
-		Button startButton = (Button) findViewById(R.id.startbutton);
+		startButton = (Button) findViewById(R.id.startbutton);
 
 		startButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				RadioButton radio =
-						(RadioButton) findViewById(R.id.tg_connect_check);
-				boolean checked = radio.isChecked();
+
+				boolean checked = enableRadio.isChecked();
 
 				Calendar cal = Calendar.getInstance();
 
@@ -95,7 +101,7 @@ public class Timed3GActivity extends Activity {
 				Intent intent =
 						new Intent(Timed3GActivity.this, Timed3GReceiver.class);
 
-				intent.putExtra("tg_enable", !checked);
+				intent.putExtra(Constants.TIMED_3G_ENABLE_3G, !checked);
 
 				Tools.set3GEnabled(Timed3GActivity.this, checked);
 
@@ -116,6 +122,16 @@ public class Timed3GActivity extends Activity {
 				Toast.makeText(getApplicationContext(),
 						getString(R.string.service_started), Toast.LENGTH_SHORT)
 						.show();
+				// Save the current state of this activity in shared preferences
+				startButton.setEnabled(false);
+				editor.putBoolean(Constants.TIMED_3G_ENABLED, true);
+				editor.putBoolean(Constants.TIMED_3G_ENABLE_3G,
+						enableRadio.isChecked());
+				editor.putBoolean(Constants.TIMED_3G_DISABLE_3G,
+						disableRadio.isChecked());
+				editor.putInt(Constants.TIMED_3G_DURATION,
+						durationSpinner.getSelectedItemPosition());
+				editor.commit();
 
 			}
 		});
@@ -137,9 +153,36 @@ public class Timed3GActivity extends Activity {
 				Toast.makeText(getApplicationContext(),
 						getString(R.string.service_stopped), Toast.LENGTH_SHORT)
 						.show();
+				// Save the current state of this activity in shared preferences
+				startButton.setEnabled(true);
+				editor.putBoolean(Constants.TIMED_3G_ENABLED, false);
+				editor.commit();
 			}
 		});
 
 	}
 
+	@Override
+	public void onResume() {
+		super.onResume();
+		settings =
+				getSharedPreferences(Constants.SHARED_PREFS_NAME,
+						Activity.MODE_PRIVATE);
+		editor = settings.edit();
+
+		// See if this service is enabled. If it is, disable the
+		// "enable service" button
+		boolean isEnabled =
+				settings.getBoolean(Constants.TIMED_3G_ENABLED, false);
+		startButton.setEnabled(!isEnabled);
+
+		durationSpinner.setSelection(settings.getInt(
+				Constants.TIMED_3G_DURATION, 0));
+
+		enableRadio.setChecked(settings.getBoolean(
+				Constants.TIMED_3G_ENABLE_3G, true));
+
+		disableRadio.setChecked(settings.getBoolean(
+				Constants.TIMED_3G_DISABLE_3G, false));
+	}
 }

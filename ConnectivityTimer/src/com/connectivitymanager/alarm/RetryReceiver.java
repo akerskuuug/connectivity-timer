@@ -9,7 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.connectivitymanager.utility.Constants;
 
@@ -17,8 +16,6 @@ public class RetryReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-
-		Log.d("RetryReceiver", "received");
 		// Get calendar
 		Calendar cal = Calendar.getInstance();
 		// Get alarm management functionality

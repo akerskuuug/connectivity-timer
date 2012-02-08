@@ -71,7 +71,6 @@
 			        android:text="@string/enable_3g"
 			        android:textSize="13dip"
        				android:textColor="#000000"
-			        android:checked="true"
 			        android:button="@drawable/radio_button_bg"/>
 			    
 			     <RadioButton android:id="@+id/tg_disconnect_check"
