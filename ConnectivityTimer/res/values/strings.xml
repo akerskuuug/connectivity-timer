@@ -35,7 +35,7 @@
 	<string name="wifi_disabled_lost_conn">Wi-Fi disabled after connection was lost</string>
 	
 	<!-- Scheduler -->	
-	<string name="scheduler_tooltip_text">When the service is started it will automatically disable Wi-Fi and/or mobile data between the times set below. \nNote that if Wi-Fi or mobile data is enabled after being automatically disabled, it will not be automatically be disabled again until the next day.</string>
+	<string name="scheduler_tooltip_text">When the service is started it will automatically disable Wi-Fi and/or mobile data every day between the times set below. \nNote that if Wi-Fi or mobile data is enabled after being automatically disabled, it will not be automatically be disabled again until the next day.</string>
 	<string name="wifi_disable_between">Disable Wi-Fi between:</string>
 	<string name="tg_disable_between">Disable mobile data between:</string>
 	<string name="tg_enabled_schedule">Mobile data enabled according to schedule</string>

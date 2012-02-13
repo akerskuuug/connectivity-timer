@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.connectivitymanager.R;
@@ -63,19 +64,23 @@ public class SchedulerActivity extends Activity implements
 
 		// Hide 3G related views for devices with SDK version 8 or lower
 		if (SDK_VERSION <= 8) {
-			tgCheck.setVisibility(View.GONE);
-			tgCheck.setChecked(false);
+			TextView tv = (TextView) findViewById(R.id.scheduler_and_label);
+			tv.setVisibility(View.GONE);
+
 			spinners[2].setVisibility(View.GONE);
 			spinners[3].setVisibility(View.GONE);
+
+			tgCheck.setVisibility(View.GONE);
+			tgCheck.setChecked(false);
+
 		}
 
 		for (Spinner spin : spinners) {
-			ArrayAdapter<CharSequence> adapter =
-					ArrayAdapter
-							.createFromResource(
-									this,
-									com.connectivitymanager.R.array.scheduler_time_array,
-									R.layout.my_simple_spinner_item);
+			ArrayAdapter<CharSequence> adapter = ArrayAdapter
+					.createFromResource(
+							this,
+							com.connectivitymanager.R.array.scheduler_time_array,
+							R.layout.my_simple_spinner_item);
 			spin.setAdapter(adapter);
 			spin.setSelection(0);
 			spin.setOnItemSelectedListener(this);
@@ -112,14 +117,12 @@ public class SchedulerActivity extends Activity implements
 						calWfTo.add(Calendar.DATE, 1);
 					}
 
-					Intent disableIntent =
-							new Intent(SchedulerActivity.this,
-									ScheduleWifiDisableReceiver.class);
+					Intent disableIntent = new Intent(SchedulerActivity.this,
+							ScheduleWifiDisableReceiver.class);
 
-					PendingIntent disableSender =
-							PendingIntent.getBroadcast(SchedulerActivity.this,
-									0, disableIntent,
-									PendingIntent.FLAG_UPDATE_CURRENT);
+					PendingIntent disableSender = PendingIntent.getBroadcast(
+							SchedulerActivity.this, 0, disableIntent,
+							PendingIntent.FLAG_UPDATE_CURRENT);
 
 					// Cancel any conflicting alarms
 					am.cancel(disableSender);
@@ -128,13 +131,11 @@ public class SchedulerActivity extends Activity implements
 					am.set(AlarmManager.RTC_WAKEUP,
 							calWfFrom.getTimeInMillis(), disableSender);
 
-					Intent enableIntent =
-							new Intent(SchedulerActivity.this,
-									ScheduleWifiEnableReceiver.class);
-					PendingIntent enableSender =
-							PendingIntent.getBroadcast(SchedulerActivity.this,
-									0, enableIntent,
-									PendingIntent.FLAG_UPDATE_CURRENT);
+					Intent enableIntent = new Intent(SchedulerActivity.this,
+							ScheduleWifiEnableReceiver.class);
+					PendingIntent enableSender = PendingIntent.getBroadcast(
+							SchedulerActivity.this, 0, enableIntent,
+							PendingIntent.FLAG_UPDATE_CURRENT);
 
 					// Cancel any conflicting alarms
 					am.cancel(enableSender);
@@ -167,14 +168,12 @@ public class SchedulerActivity extends Activity implements
 					if (calTgTo.compareTo(calNow) <= 0) {
 						calTgTo.add(Calendar.DATE, 1);
 					}
-					Intent disableIntent =
-							new Intent(SchedulerActivity.this,
-									Schedule3GDisableReceiver.class);
+					Intent disableIntent = new Intent(SchedulerActivity.this,
+							Schedule3GDisableReceiver.class);
 
-					PendingIntent disableSender =
-							PendingIntent.getBroadcast(SchedulerActivity.this,
-									0, disableIntent,
-									PendingIntent.FLAG_UPDATE_CURRENT);
+					PendingIntent disableSender = PendingIntent.getBroadcast(
+							SchedulerActivity.this, 0, disableIntent,
+							PendingIntent.FLAG_UPDATE_CURRENT);
 
 					// Cancel any conflicting alarms
 					am.cancel(disableSender);
@@ -189,14 +188,12 @@ public class SchedulerActivity extends Activity implements
 					//
 					// Enable related
 					// ----------------------------------------------------- //
-					Intent enableIntent =
-							new Intent(SchedulerActivity.this,
-									Schedule3GEnableReceiver.class);
+					Intent enableIntent = new Intent(SchedulerActivity.this,
+							Schedule3GEnableReceiver.class);
 
-					PendingIntent enableSender =
-							PendingIntent.getBroadcast(SchedulerActivity.this,
-									0, enableIntent,
-									PendingIntent.FLAG_UPDATE_CURRENT);
+					PendingIntent enableSender = PendingIntent.getBroadcast(
+							SchedulerActivity.this, 0, enableIntent,
+							PendingIntent.FLAG_UPDATE_CURRENT);
 
 					// Cancel any conflicting alarms
 					am.cancel(enableSender);
@@ -286,15 +283,14 @@ public class SchedulerActivity extends Activity implements
 	@Override
 	public void onResume() {
 		super.onResume();
-		settings =
-				getSharedPreferences(Constants.SHARED_PREFS_NAME,
-						Activity.MODE_PRIVATE);
+		settings = getSharedPreferences(Constants.SHARED_PREFS_NAME,
+				Activity.MODE_PRIVATE);
 		editor = settings.edit();
 
 		// See if this service is enabled. If it is, disable the
 		// "enable service" button
-		boolean isEnabled =
-				settings.getBoolean(Constants.SCHEDULER_ENABLED, false);
+		boolean isEnabled = settings.getBoolean(Constants.SCHEDULER_ENABLED,
+				false);
 		startButton.setEnabled(!isEnabled);
 
 		spinners[0].setSelection(settings.getInt(
@@ -319,44 +315,36 @@ public class SchedulerActivity extends Activity implements
 	public void cancelAllAlarms() {
 
 		// Needed to cancel the alarms properly
-		Intent tempIntent =
-				new Intent(SchedulerActivity.this,
-						ScheduleWifiDisableReceiver.class);
-		PendingIntent sender =
-				PendingIntent.getBroadcast(SchedulerActivity.this, 0,
-						tempIntent, 0);
+		Intent tempIntent = new Intent(SchedulerActivity.this,
+				ScheduleWifiDisableReceiver.class);
+		PendingIntent sender = PendingIntent.getBroadcast(
+				SchedulerActivity.this, 0, tempIntent, 0);
 
 		// Cancel ongoing alarms related to scheduled Wi-Fi disabling
 		am.cancel(sender);
 
-		tempIntent =
-				new Intent(SchedulerActivity.this,
-						ScheduleWifiEnableReceiver.class);
+		tempIntent = new Intent(SchedulerActivity.this,
+				ScheduleWifiEnableReceiver.class);
 
-		sender =
-				PendingIntent.getBroadcast(SchedulerActivity.this, 0,
-						tempIntent, 0);
+		sender = PendingIntent.getBroadcast(SchedulerActivity.this, 0,
+				tempIntent, 0);
 
 		// Cancel ongoing alarms related to scheduled Wi-Fi enabling
 		am.cancel(sender);
 
-		tempIntent =
-				new Intent(SchedulerActivity.this,
-						Schedule3GDisableReceiver.class);
-		sender =
-				PendingIntent.getBroadcast(SchedulerActivity.this, 0,
-						tempIntent, 0);
+		tempIntent = new Intent(SchedulerActivity.this,
+				Schedule3GDisableReceiver.class);
+		sender = PendingIntent.getBroadcast(SchedulerActivity.this, 0,
+				tempIntent, 0);
 
 		// Cancel ongoing alarms related to scheduled Wi-Fi disabling
 		am.cancel(sender);
 
-		tempIntent =
-				new Intent(SchedulerActivity.this,
-						Schedule3GEnableReceiver.class);
+		tempIntent = new Intent(SchedulerActivity.this,
+				Schedule3GEnableReceiver.class);
 
-		sender =
-				PendingIntent.getBroadcast(SchedulerActivity.this, 0,
-						tempIntent, 0);
+		sender = PendingIntent.getBroadcast(SchedulerActivity.this, 0,
+				tempIntent, 0);
 
 		// Cancel ongoing alarms related to scheduled Wi-Fi enabling
 		am.cancel(sender);
