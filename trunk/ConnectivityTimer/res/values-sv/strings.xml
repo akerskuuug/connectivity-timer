@@ -35,7 +35,7 @@
 	<string name="wifi_disabled_lost_conn">Wi-Fi inaktiverat efter förlorad uppkoppling</string>
 	
 	<!-- Scheduler -->
-	<string name="scheduler_tooltip_text">När tjänsten startas kommer den inaktivera Wi-Fi och/eller mobildata automatiskt mellan de klockslag som anges nedan. \nObservera att om Wi-Fi eller mobildata aktiveras efter automatisk inaktivering så kommer anslutningen ej inaktiveras automatiskt igen förrän nästa dygn.</string>
+	<string name="scheduler_tooltip_text">När tjänsten startas kommer den inaktivera Wi-Fi och/eller mobildata automatiskt varje dag mellan de klockslag som anges nedan. \nObservera att om Wi-Fi eller mobildata aktiveras efter automatisk inaktivering så kommer anslutningen ej inaktiveras automatiskt igen förrän nästa dygn.</string>
 	<string name="wifi_disable_between">Inaktivera Wi-Fi mellan:</string>
 	<string name="tg_disable_between">Inaktivera mobildata mellan:</string>	
 	<string name="tg_enabled_schedule">Mobildata aktiverat enligt schema</string>
