@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 
@@ -18,7 +19,9 @@ public class RetryReceiver extends BroadcastReceiver {
 	public void onReceive(Context context, Intent intent) {
 		// Get calendar
 		Calendar cal = Calendar.getInstance();
-		// Get alarm management functionality
+		// Get the extras (properties) from the current Intent
+		Bundle extras = intent.getExtras();
+
 		AlarmManager am =
 				(AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 		// Get Wi-Fi management functionality
@@ -36,16 +39,23 @@ public class RetryReceiver extends BroadcastReceiver {
 		while (wfMgr.getWifiState() == WifiManager.WIFI_STATE_ENABLING) {
 		}
 
+		ConnectivityManager cnMgr =
+				(ConnectivityManager) context
+						.getSystemService(Context.CONNECTIVITY_SERVICE);
+
 		// Wait so that Wi-Fi has a possibility to connect (UGLY CODE)
 		int i = 0;
-		while (wfMgr.getConnectionInfo().getNetworkId() == -1 && i < 60000) {
+		while (!cnMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
+				.isConnectedOrConnecting() && i < 20000) {
 			i++;
 		}
 
 		// If Wi-Fi is disconnected, disable it and try again in 30 minutes.
 		// If it has obtained a connection, start monitoring the network
 		// connection again
-		if (wfMgr.getConnectionInfo().getNetworkId() == -1) {
+
+		if (!cnMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
+				.isConnectedOrConnecting()) {
 
 			// Disable Wi-Fi
 			wfMgr.setWifiEnabled(false);
@@ -55,12 +65,8 @@ public class RetryReceiver extends BroadcastReceiver {
 			am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), sender);
 		} else {
 			am.cancel(sender);
-
 			// Duration until Wi-Fi connection is tested again
 			cal.add(Constants.DURATION, 15);
-
-			// Get the extras (properties) from the current Intent
-			Bundle extras = intent.getExtras();
 
 			// Create a new Intent which will trigger a DisconnectReceiver
 			// instead
@@ -68,7 +74,7 @@ public class RetryReceiver extends BroadcastReceiver {
 					new Intent(context, DisconnectReceiver.class);
 
 			// Put the Intents from the old intent into the new one
-			intent.putExtras(extras);
+			disconnectAlarmIntent.putExtras(extras);
 
 			PendingIntent disconnectSender =
 					PendingIntent.getBroadcast(context, 0,
