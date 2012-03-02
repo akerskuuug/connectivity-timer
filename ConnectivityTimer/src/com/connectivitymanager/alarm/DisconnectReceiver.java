@@ -71,6 +71,7 @@ public class DisconnectReceiver extends BroadcastReceiver {
 
 					repeats = 0;
 					dis_by_this = true;
+
 				} else {
 
 					// Wait 15 minutes before checking next time
@@ -101,7 +102,6 @@ public class DisconnectReceiver extends BroadcastReceiver {
 		}
 
 		if (!wfMgr.isWifiEnabled() && retry && dis_by_this) {
-
 			cal.add(Constants.DURATION, 30);
 
 			// Construct the next alarm

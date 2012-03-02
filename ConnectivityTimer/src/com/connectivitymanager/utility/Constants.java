@@ -5,7 +5,7 @@ import java.util.Calendar;
 public class Constants {
 	public final static int DURATION = Calendar.MINUTE;
 
-	public final static String SHARED_PREFS_NAME = "";
+	public final static String SHARED_PREFS_NAME = "cm_prefs";
 
 	public final static String WATCHER_ENABLED = "watcher_enabled";
 	public final static String WATCHER_DURATION = "watcher_duration";
@@ -33,7 +33,8 @@ public class Constants {
 	public final static String SCHEDULER_DISABLE_WIFI =
 			"scheduler_disable_wifi";
 	public final static String SCHEDULER_DISABLE_3G = "scheduler_disable_3g";
-	public final static String SCHEDULER_WIFI_FROM_SELECTION = "scheduler_wffrom";
+	public final static String SCHEDULER_WIFI_FROM_SELECTION =
+			"scheduler_wffrom";
 	public final static String SCHEDULER_WIFI_TO_SELECTION = "scheduler_wfto";
 	public final static String SCHEDULER_3G_FROM_SELECTION = "scheduler_tgfrom";
 	public final static String SCHEDULER_3G_TO_SELECTION = "scheduler_tgto";
