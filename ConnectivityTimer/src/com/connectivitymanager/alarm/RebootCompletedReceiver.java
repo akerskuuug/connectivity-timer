@@ -9,6 +9,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.widget.Toast;
 
 import com.connectivitymanager.R;
 import com.connectivitymanager.utility.Constants;
@@ -77,42 +78,191 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 			String[] timeArray =
 					context.getResources().getStringArray(
 							R.array.scheduler_time_array);
+			String mode =
+					settings.getString(Constants.SCHEDULER_MODE, "simple");
+			String wfFrom, wfTo, tgFrom, tgTo;
+			int[] wfFromHours = new int[7], wfToHours = new int[7], tgFromHours =
+					new int[7], tgToHours = new int[7];
+			int[] wfFromMinutes = new int[7], wfToMinutes = new int[7], tgFromMinutes =
+					new int[7], tgToMinutes = new int[7];
 
-			// Wi-Fi disable start:
-			String str =
-					timeArray[settings.getInt(
-							Constants.SCHEDULER_WIFI_FROM_SELECTION, 0)];
-			int wfFromHours =
-					Integer.parseInt(str.substring(0, str.indexOf(':')));
-			int wfFromMinutes =
-					Integer.parseInt(str.substring(str.indexOf(':') + 1));
+			if (mode.equals("simple")) {
+				wfFrom =
+						timeArray[settings.getInt(
+								Constants.SCHEDULER_WIFI_FROM_SELECTION, 0)];
+				wfTo =
+						timeArray[settings.getInt(
+								Constants.SCHEDULER_WIFI_TO_SELECTION, 0)];
+				tgFrom =
+						timeArray[settings.getInt(
+								Constants.SCHEDULER_3G_FROM_SELECTION, 0)];
+				tgTo =
+						timeArray[settings.getInt(
+								Constants.SCHEDULER_3G_TO_SELECTION, 0)];
+				for (int i = 0; i < 7; i++) {
+					wfFromHours[i] =
+							Integer.parseInt(wfFrom.substring(0,
+									wfFrom.indexOf(':')));
+					wfFromMinutes[i] =
+							Integer.parseInt(wfFrom.substring(wfFrom
+									.indexOf(':') + 1));
 
-			// Wi-Fi disable end
-			str =
-					timeArray[settings.getInt(
-							Constants.SCHEDULER_WIFI_TO_SELECTION, 0)];
-			int wfToHours =
-					Integer.parseInt(str.substring(0, str.indexOf(':')));
-			int wfToMinutes =
-					Integer.parseInt(str.substring(str.indexOf(':') + 1));
+					wfToHours[i] =
+							Integer.parseInt(wfTo.substring(0,
+									wfTo.indexOf(':')));
+					wfToMinutes[i] =
+							Integer.parseInt(wfTo.substring(wfTo.indexOf(':') + 1));
 
-			// Mobile data disable start
-			str =
-					timeArray[settings.getInt(
-							Constants.SCHEDULER_3G_FROM_SELECTION, 0)];
-			int tgFromHours =
-					Integer.parseInt(str.substring(0, str.indexOf(':')));
-			int tgFromMinutes =
-					Integer.parseInt(str.substring(str.indexOf(':') + 1));
+					tgFromHours[i] =
+							Integer.parseInt(tgFrom.substring(0,
+									tgFrom.indexOf(':')));
+					tgFromMinutes[i] =
+							Integer.parseInt(tgFrom.substring(tgFrom
+									.indexOf(':') + 1));
 
-			// Mobile data disable end
-			str =
-					timeArray[settings.getInt(
-							Constants.SCHEDULER_3G_TO_SELECTION, 0)];
-			int tgToHours =
-					Integer.parseInt(str.substring(0, str.indexOf(':')));
-			int tgToMinutes =
-					Integer.parseInt(str.substring(str.indexOf(':') + 1));
+					tgToHours[i] =
+							Integer.parseInt(tgTo.substring(0,
+									tgTo.indexOf(':')));
+					tgToMinutes[i] =
+							Integer.parseInt(tgTo.substring(tgTo.indexOf(':') + 1));
+				}
+
+			} else if (mode.equals("medium")) {
+
+				for (int i = 0; i < 7; i++) {
+					if (i > 0 && i < 6) {
+						wfFrom =
+								timeArray[settings
+										.getInt(Constants.SCHEDULER_WD_WIFI_FROM_SELECTION,
+												0)];
+						wfTo =
+								timeArray[settings
+										.getInt(Constants.SCHEDULER_WD_WIFI_TO_SELECTION,
+												0)];
+						tgFrom =
+								timeArray[settings
+										.getInt(Constants.SCHEDULER_WD_3G_FROM_SELECTION,
+												0)];
+						tgTo =
+								timeArray[settings.getInt(
+										Constants.SCHEDULER_WD_3G_TO_SELECTION,
+										0)];
+
+					} else {
+						wfFrom =
+								timeArray[settings
+										.getInt(Constants.SCHEDULER_WE_WIFI_FROM_SELECTION,
+												0)];
+						wfTo =
+								timeArray[settings
+										.getInt(Constants.SCHEDULER_WE_WIFI_TO_SELECTION,
+												0)];
+						tgFrom =
+								timeArray[settings
+										.getInt(Constants.SCHEDULER_WE_3G_FROM_SELECTION,
+												0)];
+						tgTo =
+								timeArray[settings.getInt(
+										Constants.SCHEDULER_WE_3G_TO_SELECTION,
+										0)];
+					}
+
+					wfFromHours[i] =
+							Integer.parseInt(wfFrom.substring(0,
+									wfFrom.indexOf(':')));
+					wfFromMinutes[i] =
+							Integer.parseInt(wfFrom.substring(wfFrom
+									.indexOf(':') + 1));
+
+					wfToHours[i] =
+							Integer.parseInt(wfTo.substring(0,
+									wfTo.indexOf(':')));
+					wfToMinutes[i] =
+							Integer.parseInt(wfTo.substring(wfTo.indexOf(':') + 1));
+
+					tgFromHours[i] =
+							Integer.parseInt(tgFrom.substring(0,
+									tgFrom.indexOf(':')));
+					tgFromMinutes[i] =
+							Integer.parseInt(tgFrom.substring(tgFrom
+									.indexOf(':') + 1));
+
+					tgToHours[i] =
+							Integer.parseInt(tgTo.substring(0,
+									tgTo.indexOf(':')));
+					tgToMinutes[i] =
+							Integer.parseInt(tgTo.substring(tgTo.indexOf(':') + 1));
+
+				}
+
+			} else if (mode.equals("advanced")) {
+				for (int i = 0; i < 7; i++) {
+
+					wfFrom =
+							timeArray[settings
+									.getInt(Constants.SCHEDULER_ADVANCED_WEEKDAYS[2 * i],
+											0)];
+					wfTo =
+							timeArray[settings
+									.getInt(Constants.SCHEDULER_ADVANCED_WEEKDAYS[2 * i + 1],
+											0)];
+					tgFrom =
+							timeArray[settings
+									.getInt(Constants.SCHEDULER_ADVANCED_WEEKDAYS[2 * i + 14],
+											0)];
+					tgTo =
+							timeArray[settings
+									.getInt(Constants.SCHEDULER_ADVANCED_WEEKDAYS[2 * i + 15],
+											0)];
+
+					wfFromHours[i] =
+							Integer.parseInt(wfFrom.substring(0,
+									wfFrom.indexOf(':')));
+					wfFromMinutes[i] =
+							Integer.parseInt(wfFrom.substring(wfFrom
+									.indexOf(':') + 1));
+
+					wfToHours[i] =
+							Integer.parseInt(wfTo.substring(0,
+									wfTo.indexOf(':')));
+					wfToMinutes[i] =
+							Integer.parseInt(wfTo.substring(wfTo.indexOf(':') + 1));
+
+					tgFromHours[i] =
+							Integer.parseInt(tgFrom.substring(0,
+									tgFrom.indexOf(':')));
+					tgFromMinutes[i] =
+							Integer.parseInt(tgFrom.substring(tgFrom
+									.indexOf(':') + 1));
+
+					tgToHours[i] =
+							Integer.parseInt(tgTo.substring(0,
+									tgTo.indexOf(':')));
+					tgToMinutes[i] =
+							Integer.parseInt(tgTo.substring(tgTo.indexOf(':') + 1));
+
+				}
+			}
+
+			if (mode.equals("medium")) {
+				if (wfFromHours[6] >= wfToHours[6]) {
+					wfFromHours[5] = wfFromHours[6];
+					wfToHours[5] = wfToHours[6];
+				}
+				if (tgFromHours[6] >= tgFromHours[6]) {
+					tgFromHours[5] = tgFromHours[6];
+					tgToHours[5] = tgToHours[6];
+				}
+				if (wfFromHours[1] >= wfToHours[1]) {
+					wfFromHours[0] = wfFromHours[1];
+					wfToHours[0] = wfToHours[1];
+				}
+				if (tgFromHours[1] >= tgFromHours[1]) {
+					tgFromHours[0] = tgFromHours[1];
+					tgToHours[0] = tgToHours[1];
+				}
+
+			}
 
 			// Calendars used to set all of the alarms
 			Calendar calNow = Calendar.getInstance();
@@ -121,105 +271,166 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 			Calendar calTgFrom = Calendar.getInstance();
 			Calendar calTgTo = Calendar.getInstance();
 
+			// Get the current day of the week (starting with Sunday as 0)
+			int currentDay = calNow.get(Calendar.DAY_OF_WEEK) - 1;
+
 			if (settings.getBoolean(Constants.SCHEDULER_DISABLE_WIFI, false)) {
+				for (int i = 0; i < 7; i++) {
+					calWfFrom.set(Calendar.HOUR_OF_DAY, wfFromHours[i]);
+					calWfFrom.set(Calendar.MINUTE, wfFromMinutes[i]);
+					calWfFrom.set(Calendar.SECOND, 0);
 
-				calWfFrom.set(Calendar.HOUR_OF_DAY, wfFromHours);
-				calWfFrom.set(Calendar.MINUTE, wfFromMinutes);
-				calWfFrom.set(Calendar.SECOND, 0);
-				calWfTo.set(Calendar.HOUR_OF_DAY, wfToHours);
-				calWfTo.set(Calendar.MINUTE, wfToMinutes);
-				calWfTo.set(Calendar.SECOND, 0);
+					calWfTo.set(Calendar.HOUR_OF_DAY, wfToHours[i]);
+					calWfTo.set(Calendar.MINUTE, wfToMinutes[i]);
+					calWfTo.set(Calendar.SECOND, 0);
 
-				// If Wi-Fi is set to be disabled or enabled before now, do it
-				// 24 hours
-				// later.
-				if (calWfFrom.compareTo(calNow) <= 0) {
-					calWfFrom.add(Calendar.DATE, 1);
+					if (i < currentDay) {
+						// If the day we are setting the alarm for has
+						// already passed this week, set it for the same day
+						// next week
+						calWfFrom.add(Calendar.DATE, 7 - currentDay);
+						calWfTo.add(Calendar.DATE, 7 - currentDay);
+					} else if (i > currentDay) {
+						// If the day is later this week, add the correct
+						// number of days
+						calWfFrom.add(Calendar.DATE, i - currentDay);
+						calWfTo.add(Calendar.DATE, i - currentDay);
+					} else {
+
+						if (calWfFrom.compareTo(calNow) <= 0
+								|| calWfTo.compareTo(calNow) <= 0) {
+							calWfFrom.add(Calendar.DATE, 7);
+							calWfTo.add(Calendar.DATE, 7);
+						}
+
+					}
+
+					if (calWfTo.compareTo(calWfFrom) <= 0) {
+						calWfTo.add(Calendar.DATE, 1);
+					}
+
+					Intent disableIntent =
+							new Intent(context,
+									ScheduleWifiDisableReceiver.class);
+
+					PendingIntent disableSender =
+							PendingIntent.getBroadcast(context, i * 11,
+									disableIntent,
+									PendingIntent.FLAG_UPDATE_CURRENT);
+
+					// Set the alarm
+					am.set(AlarmManager.RTC_WAKEUP,
+							calWfFrom.getTimeInMillis(), disableSender);
+					// /Disable related
+					// ----------------------------------------------------- //
+					//
+
+					//
+					// Enable related
+					// ----------------------------------------------------- //
+					Intent enableIntent =
+							new Intent(context,
+									ScheduleWifiEnableReceiver.class);
+
+					PendingIntent enableSender =
+							PendingIntent.getBroadcast(context, i * 13,
+									enableIntent,
+									PendingIntent.FLAG_UPDATE_CURRENT);
+
+					// Set the alarm
+					am.set(AlarmManager.RTC_WAKEUP, calWfTo.getTimeInMillis(),
+							enableSender);
+					Toast.makeText(
+							context,
+							calWfFrom.get(Calendar.DAY_OF_WEEK) + " "
+									+ calWfFrom.get(Calendar.HOUR) + " WifiTo "
+									+ calWfTo.get(Calendar.DAY_OF_WEEK) + " "
+									+ calWfTo.get(Calendar.HOUR),
+							Toast.LENGTH_SHORT).show();
+
+					// /Enable related
+					// ---------------------------------------------------- //
 				}
-				if (calWfTo.compareTo(calNow) <= 0) {
-					calWfTo.add(Calendar.DATE, 1);
-				}
-
-				Intent disableIntent =
-						new Intent(context, ScheduleWifiDisableReceiver.class);
-
-				PendingIntent disableSender =
-						PendingIntent.getBroadcast(context, 0, disableIntent,
-								PendingIntent.FLAG_UPDATE_CURRENT);
-
-				// Set the alarm
-				am.set(AlarmManager.RTC_WAKEUP, calWfFrom.getTimeInMillis(),
-						disableSender);
-				// /Disable related
-				// ----------------------------------------------------- //
-				//
-
-				//
-				// Enable related
-				// ----------------------------------------------------- //
-				Intent enableIntent =
-						new Intent(context, ScheduleWifiEnableReceiver.class);
-
-				PendingIntent enableSender =
-						PendingIntent.getBroadcast(context, 0, enableIntent,
-								PendingIntent.FLAG_UPDATE_CURRENT);
-
-				// Set the alarm
-				am.set(AlarmManager.RTC_WAKEUP, calWfTo.getTimeInMillis(),
-						enableSender);
-				// /Enable related
-				// ---------------------------------------------------- //
-
 			}
 			// Only set a mobile data alarm if the SDK level is above 8
 			if (Integer.valueOf(android.os.Build.VERSION.SDK) > 8
 					&& settings.getBoolean(Constants.SCHEDULER_DISABLE_3G,
 							false)) {
-				calTgFrom.set(Calendar.HOUR_OF_DAY, tgFromHours);
-				calTgFrom.set(Calendar.MINUTE, tgFromMinutes);
-				calTgFrom.set(Calendar.SECOND, 0);
-				calTgTo.set(Calendar.HOUR_OF_DAY, tgToHours);
-				calTgTo.set(Calendar.MINUTE, tgToMinutes);
-				calTgTo.set(Calendar.SECOND, 0);
+				for (int i = 0; i < 7; i++) {
 
-				// If mobile data is set to be disabled or enabled before now,
-				// do it 24 hours later.
-				if (calTgFrom.compareTo(calNow) <= 0) {
-					calTgFrom.add(Calendar.DATE, 1);
+					calTgFrom.set(Calendar.HOUR_OF_DAY, tgFromHours[i]);
+					calTgFrom.set(Calendar.MINUTE, tgFromMinutes[i]);
+					calTgFrom.set(Calendar.SECOND, 0);
+
+					calTgTo.set(Calendar.HOUR_OF_DAY, tgToHours[i]);
+					calTgTo.set(Calendar.MINUTE, tgToMinutes[i]);
+					calTgTo.set(Calendar.SECOND, 0);
+
+					if (i < currentDay) {
+						// If the day we are setting the alarm for has
+						// already passed this week, set it for the same day
+						// next week
+						calTgFrom.add(Calendar.DATE, 7 - currentDay);
+						calTgTo.add(Calendar.DATE, 7 - currentDay);
+					} else if (i > currentDay) {
+						// If the day is later this week, add the correct
+						// number of days
+						calTgFrom.add(Calendar.DATE, i - currentDay);
+						calTgTo.add(Calendar.DATE, i - currentDay);
+					} else {
+
+						if (calTgFrom.compareTo(calNow) <= 0
+								|| calTgTo.compareTo(calNow) <= 0) {
+							calTgFrom.add(Calendar.DATE, 7);
+							calTgTo.add(Calendar.DATE, 7);
+						}
+
+					}
+
+					if (calTgTo.compareTo(calTgFrom) <= 0) {
+						calTgTo.add(Calendar.DATE, 1);
+					}
+
+					Intent disableIntent =
+							new Intent(context, Schedule3GDisableReceiver.class);
+
+					PendingIntent disableSender =
+							PendingIntent.getBroadcast(context, i * 15,
+									disableIntent,
+									PendingIntent.FLAG_UPDATE_CURRENT);
+
+					// Set the alarm
+					am.set(AlarmManager.RTC_WAKEUP,
+							calTgFrom.getTimeInMillis(), disableSender);
+					// /Disable related
+					// ----------------------------------------------------- //
+					//
+
+					//
+					// Enable related
+					// ----------------------------------------------------- //
+					Intent enableIntent =
+							new Intent(context, Schedule3GEnableReceiver.class);
+
+					PendingIntent enableSender =
+							PendingIntent.getBroadcast(context, i * 17,
+									enableIntent,
+									PendingIntent.FLAG_UPDATE_CURRENT);
+
+					// Set the alarm
+					am.set(AlarmManager.RTC_WAKEUP, calTgTo.getTimeInMillis(),
+							enableSender);
+
+					Toast.makeText(
+							context,
+							calTgFrom.get(Calendar.DAY_OF_WEEK) + " "
+									+ calTgFrom.get(Calendar.HOUR) + " 3GTo "
+									+ calTgTo.get(Calendar.DAY_OF_WEEK) + " "
+									+ calTgTo.get(Calendar.HOUR),
+							Toast.LENGTH_SHORT).show();
+					// /Enable related
+					// ---------------------------------------------------- //
 				}
-				if (calTgTo.compareTo(calNow) <= 0) {
-					calTgTo.add(Calendar.DATE, 1);
-				}
-
-				Intent disableIntent =
-						new Intent(context, Schedule3GDisableReceiver.class);
-
-				PendingIntent disableSender =
-						PendingIntent.getBroadcast(context, 0, disableIntent,
-								PendingIntent.FLAG_UPDATE_CURRENT);
-
-				// Set the alarm
-				am.set(AlarmManager.RTC_WAKEUP, calTgFrom.getTimeInMillis(),
-						disableSender);
-				// /Disable related
-				// ----------------------------------------------------- //
-				//
-
-				//
-				// Enable related
-				// ----------------------------------------------------- //
-				Intent enableIntent =
-						new Intent(context, Schedule3GEnableReceiver.class);
-
-				PendingIntent enableSender =
-						PendingIntent.getBroadcast(context, 0, enableIntent,
-								PendingIntent.FLAG_UPDATE_CURRENT);
-
-				// Set the alarm
-				am.set(AlarmManager.RTC_WAKEUP, calTgTo.getTimeInMillis(),
-						enableSender);
-				// /Enable related
-				// ---------------------------------------------------- //
 			}
 		}
 	}
