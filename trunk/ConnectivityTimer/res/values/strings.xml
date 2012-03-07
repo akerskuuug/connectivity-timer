@@ -35,14 +35,31 @@
 	<string name="wifi_disabled_lost_conn">Wi-Fi disabled after connection was lost</string>
 	
 	<!-- Scheduler -->	
+	<string name="advanced">Advanced</string>
+	<string name="and">and</string>
+	<string name="medium">Medium</string>
+	<string name="mode">Mode</string>
 	<string name="scheduler_tooltip_text">When the service is started it will automatically disable Wi-Fi and/or mobile data every day between the times set below. \nNote that if Wi-Fi or mobile data is enabled after being automatically disabled, it will not be automatically be disabled again until the next day.</string>
+	<string name="scheduler_medium_tip">Please note that Friday night counts as weekday and Sunday night counts as weekend.</string>
+	<string name="show_notification">Show notification</string>
+	<string name="simple">Simple</string>
 	<string name="wifi_disable_between">Disable Wi-Fi between:</string>
 	<string name="tg_disable_between">Disable mobile data between:</string>
 	<string name="tg_enabled_schedule">Mobile data enabled according to schedule</string>
 	<string name="tg_disabled_schedule">Mobile data disabled according to schedule</string>
 	<string name="wf_enabled_schedule">Wi-Fi enabled according to schedule</string>
 	<string name="wf_disabled_schedule">Wi-Fi data disabled according to schedule</string>
-	<string name="and">and</string>
+	<string name="monday">Monday</string>
+	<string name="tuesday">Tuesday</string>
+	<string name="wednesday">Wednesday</string>
+	<string name="thursday">Thursday</string>
+	<string name="friday">Friday</string>
+	<string name="saturday">Saturday</string>
+	<string name="sunday">Sunday</string>
+	<string name="weekend">Weekend</string>
+	<string name="weekday">Weekday</string>
+	
+	
 	
 	
 	<!-- Timed Wi-Fi -->

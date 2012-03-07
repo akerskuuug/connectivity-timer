@@ -35,14 +35,30 @@
 	<string name="wifi_disabled_lost_conn">Wi-Fi inaktiverat efter förlorad uppkoppling</string>
 	
 	<!-- Scheduler -->
+	<string name="advanced">Avancerad</string>
+	<string name="and">och</string>
+	<string name="medium">Medel</string>
+	<string name="mode">Läge</string>
 	<string name="scheduler_tooltip_text">När tjänsten startas kommer den inaktivera Wi-Fi och/eller mobildata automatiskt varje dag mellan de klockslag som anges nedan. \nObservera att om Wi-Fi eller mobildata aktiveras efter automatisk inaktivering så kommer anslutningen ej inaktiveras automatiskt igen förrän nästa dygn.</string>
+	<string name="scheduler_medium_tip">Vänligen observera att fredag kväll räknas som helg och att söndag kväll räknas som vardag.</string>
+	<string name="show_notification">Visa meddelande</string>
+	<string name="simple">Enkel</string>
 	<string name="wifi_disable_between">Inaktivera Wi-Fi mellan:</string>
 	<string name="tg_disable_between">Inaktivera mobildata mellan:</string>	
 	<string name="tg_enabled_schedule">Mobildata aktiverat enligt schema</string>
 	<string name="tg_disabled_schedule">Mobildata inaktiverat enligt schema</string>
 	<string name="wf_enabled_schedule">Wi-Fi aktiverat enligt schema</string>
 	<string name="wf_disabled_schedule">Wi-Fi inaktiverat enligt schema</string>
-	<string name="and">och</string>
+	<string name="monday">Måndag</string>
+	<string name="tuesday">Tisdag</string>
+	<string name="wednesday">Onsdag</string>
+	<string name="thursday">Torsdag</string>
+	<string name="friday">Fredag</string>
+	<string name="saturday">Lördag</string>
+	<string name="sunday">Söndag</string>
+	<string name="weekend">Helg</string>
+	<string name="weekday">Vardag</string>
+	
 	
 	<!-- Timed Wi-Fi -->
 	<string name="action">Åtgärd</string>
