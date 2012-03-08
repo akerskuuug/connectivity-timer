@@ -40,7 +40,7 @@ public class ScheduleWifiDisableReceiver extends BroadcastReceiver {
 		Intent newIntent =
 				new Intent(context, ScheduleWifiDisableReceiver.class);
 		PendingIntent sender =
-				PendingIntent.getBroadcast(context, 1193, newIntent,
+				PendingIntent.getBroadcast(context, 7, newIntent,
 						PendingIntent.FLAG_UPDATE_CURRENT);
 
 		// Cancel any conflicting alarms

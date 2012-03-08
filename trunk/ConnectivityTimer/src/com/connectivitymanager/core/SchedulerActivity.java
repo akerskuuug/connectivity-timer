@@ -109,7 +109,7 @@ public class SchedulerActivity extends Activity implements
 						wfFromHours[5] = wfFromHours[6];
 						wfToHours[5] = wfToHours[6];
 					}
-					if (tgFromHours[6] >= tgFromHours[6]) {
+					if (tgFromHours[6] >= tgToHours[6]) {
 						tgFromHours[5] = tgFromHours[6];
 						tgToHours[5] = tgToHours[6];
 					}
@@ -117,7 +117,7 @@ public class SchedulerActivity extends Activity implements
 						wfFromHours[0] = wfFromHours[1];
 						wfToHours[0] = wfToHours[1];
 					}
-					if (tgFromHours[1] >= tgFromHours[1]) {
+					if (tgFromHours[1] >= tgToHours[1]) {
 						tgFromHours[0] = tgFromHours[1];
 						tgToHours[0] = tgToHours[1];
 					}
@@ -183,7 +183,7 @@ public class SchedulerActivity extends Activity implements
 
 						PendingIntent disableSender =
 								PendingIntent.getBroadcast(
-										SchedulerActivity.this, i * 11,
+										SchedulerActivity.this, i,
 										disableIntent,
 										PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -196,7 +196,7 @@ public class SchedulerActivity extends Activity implements
 										ScheduleWifiEnableReceiver.class);
 						PendingIntent enableSender =
 								PendingIntent.getBroadcast(
-										SchedulerActivity.this, i * 13,
+										SchedulerActivity.this, i + 8,
 										enableIntent,
 										PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -257,7 +257,7 @@ public class SchedulerActivity extends Activity implements
 
 						PendingIntent disableSender =
 								PendingIntent.getBroadcast(
-										SchedulerActivity.this, i * 15,
+										SchedulerActivity.this, i + 16,
 										disableIntent,
 										PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -274,7 +274,7 @@ public class SchedulerActivity extends Activity implements
 
 						PendingIntent enableSender =
 								PendingIntent.getBroadcast(
-										SchedulerActivity.this, i * 17,
+										SchedulerActivity.this, i + 24,
 										enableIntent,
 										PendingIntent.FLAG_UPDATE_CURRENT);
 						// Set the alarm
@@ -570,14 +570,14 @@ public class SchedulerActivity extends Activity implements
 	 */
 	public void cancelAllAlarms() {
 
-		for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < 8; i++) {
 
 			// Needed to cancel the alarms properly
 			Intent tempIntent =
 					new Intent(SchedulerActivity.this,
 							ScheduleWifiDisableReceiver.class);
 			PendingIntent sender =
-					PendingIntent.getBroadcast(SchedulerActivity.this, i * 11,
+					PendingIntent.getBroadcast(SchedulerActivity.this, i,
 							tempIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
 			// Cancel ongoing alarms related to scheduled Wi-Fi disabling
@@ -588,7 +588,7 @@ public class SchedulerActivity extends Activity implements
 							ScheduleWifiEnableReceiver.class);
 
 			sender =
-					PendingIntent.getBroadcast(SchedulerActivity.this, i * 13,
+					PendingIntent.getBroadcast(SchedulerActivity.this, i + 8,
 							tempIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
 			// Cancel ongoing alarms related to scheduled Wi-Fi enabling
@@ -598,7 +598,7 @@ public class SchedulerActivity extends Activity implements
 					new Intent(SchedulerActivity.this,
 							Schedule3GDisableReceiver.class);
 			sender =
-					PendingIntent.getBroadcast(SchedulerActivity.this, i * 15,
+					PendingIntent.getBroadcast(SchedulerActivity.this, i + 16,
 							tempIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
 			// Cancel ongoing alarms related to scheduled Wi-Fi disabling
@@ -609,7 +609,7 @@ public class SchedulerActivity extends Activity implements
 							Schedule3GEnableReceiver.class);
 
 			sender =
-					PendingIntent.getBroadcast(SchedulerActivity.this, i * 17,
+					PendingIntent.getBroadcast(SchedulerActivity.this, i + 24,
 							tempIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
 			// Cancel ongoing alarms related to scheduled Wi-Fi enabling

@@ -9,7 +9,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.widget.Toast;
 
 import com.connectivitymanager.R;
 import com.connectivitymanager.utility.Constants;
@@ -249,7 +248,7 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 					wfFromHours[5] = wfFromHours[6];
 					wfToHours[5] = wfToHours[6];
 				}
-				if (tgFromHours[6] >= tgFromHours[6]) {
+				if (tgFromHours[6] >= tgToHours[6]) {
 					tgFromHours[5] = tgFromHours[6];
 					tgToHours[5] = tgToHours[6];
 				}
@@ -257,7 +256,7 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 					wfFromHours[0] = wfFromHours[1];
 					wfToHours[0] = wfToHours[1];
 				}
-				if (tgFromHours[1] >= tgFromHours[1]) {
+				if (tgFromHours[1] >= tgToHours[1]) {
 					tgFromHours[0] = tgFromHours[1];
 					tgToHours[0] = tgToHours[1];
 				}
@@ -314,7 +313,7 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 									ScheduleWifiDisableReceiver.class);
 
 					PendingIntent disableSender =
-							PendingIntent.getBroadcast(context, i * 11,
+							PendingIntent.getBroadcast(context, i,
 									disableIntent,
 									PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -333,20 +332,13 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 									ScheduleWifiEnableReceiver.class);
 
 					PendingIntent enableSender =
-							PendingIntent.getBroadcast(context, i * 13,
+							PendingIntent.getBroadcast(context, i + 8,
 									enableIntent,
 									PendingIntent.FLAG_UPDATE_CURRENT);
 
 					// Set the alarm
 					am.set(AlarmManager.RTC_WAKEUP, calWfTo.getTimeInMillis(),
 							enableSender);
-					Toast.makeText(
-							context,
-							calWfFrom.get(Calendar.DAY_OF_WEEK) + " "
-									+ calWfFrom.get(Calendar.HOUR) + " WifiTo "
-									+ calWfTo.get(Calendar.DAY_OF_WEEK) + " "
-									+ calWfTo.get(Calendar.HOUR),
-							Toast.LENGTH_SHORT).show();
 
 					// /Enable related
 					// ---------------------------------------------------- //
@@ -395,7 +387,7 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 							new Intent(context, Schedule3GDisableReceiver.class);
 
 					PendingIntent disableSender =
-							PendingIntent.getBroadcast(context, i * 15,
+							PendingIntent.getBroadcast(context, i + 16,
 									disableIntent,
 									PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -413,7 +405,7 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 							new Intent(context, Schedule3GEnableReceiver.class);
 
 					PendingIntent enableSender =
-							PendingIntent.getBroadcast(context, i * 17,
+							PendingIntent.getBroadcast(context, i + 24,
 									enableIntent,
 									PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -421,13 +413,6 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 					am.set(AlarmManager.RTC_WAKEUP, calTgTo.getTimeInMillis(),
 							enableSender);
 
-					Toast.makeText(
-							context,
-							calTgFrom.get(Calendar.DAY_OF_WEEK) + " "
-									+ calTgFrom.get(Calendar.HOUR) + " 3GTo "
-									+ calTgTo.get(Calendar.DAY_OF_WEEK) + " "
-									+ calTgTo.get(Calendar.HOUR),
-							Toast.LENGTH_SHORT).show();
 					// /Enable related
 					// ---------------------------------------------------- //
 				}
