@@ -34,7 +34,7 @@ public class Schedule3GDisableReceiver extends BroadcastReceiver {
 
 		Intent newIntent = new Intent(context, Schedule3GDisableReceiver.class);
 		PendingIntent sender =
-				PendingIntent.getBroadcast(context, 1197, newIntent,
+				PendingIntent.getBroadcast(context, 23, newIntent,
 						PendingIntent.FLAG_UPDATE_CURRENT);
 
 		// Cancel any conflicting alarms

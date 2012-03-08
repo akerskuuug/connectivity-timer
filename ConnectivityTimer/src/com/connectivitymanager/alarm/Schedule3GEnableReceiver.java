@@ -34,7 +34,7 @@ public class Schedule3GEnableReceiver extends BroadcastReceiver {
 
 		Intent newIntent = new Intent(context, Schedule3GEnableReceiver.class);
 		PendingIntent sender =
-				PendingIntent.getBroadcast(context, 1199, newIntent,
+				PendingIntent.getBroadcast(context, 31, newIntent,
 						PendingIntent.FLAG_UPDATE_CURRENT);
 
 		// Cancel any conflicting alarms
