@@ -40,7 +40,7 @@
 	<string name="medium">Medel</string>
 	<string name="mode">Läge</string>
 	<string name="scheduler_tooltip_text">När tjänsten startas kommer den inaktivera Wi-Fi och/eller mobildata automatiskt varje dag mellan de klockslag som anges nedan. \nObservera att om Wi-Fi eller mobildata aktiveras efter automatisk inaktivering så kommer anslutningen ej inaktiveras automatiskt igen förrän nästa dygn.</string>
-	<string name="scheduler_medium_tip">Vänligen observera att fredag kväll räknas som helg och att söndag kväll räknas som vardag.</string>
+	<string name="scheduler_medium_tip">Vänligen observera att fredag kväll räknas som helg och att söndag kväll räknas som vardag (gäller endast om avstängning sker på natten både på vardagar och helger).</string>
 	<string name="show_notification">Visa meddelande</string>
 	<string name="simple">Enkel</string>
 	<string name="wifi_disable_between">Inaktivera Wi-Fi mellan:</string>
