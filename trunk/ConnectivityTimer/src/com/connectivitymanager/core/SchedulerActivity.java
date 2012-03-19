@@ -105,19 +105,25 @@ public class SchedulerActivity extends Activity implements
 				// is set to be disabled during the night in medium mode we will
 				// set the times accordingly
 				if (mode.equals("medium")) {
-					if (wfFromHours[6] >= wfToHours[6]) {
+					if (wfFromHours[6] >= wfToHours[6]
+							&& wfFromMinutes[6] >= wfToMinutes[6]
+							&& wfFromHours[1] >= wfToHours[1]
+							&& wfFromMinutes[1] >= wfToMinutes[1]) {
+
 						wfFromHours[5] = wfFromHours[6];
 						wfToHours[5] = wfToHours[6];
-					}
-					if (tgFromHours[6] >= tgToHours[6]) {
-						tgFromHours[5] = tgFromHours[6];
-						tgToHours[5] = tgToHours[6];
-					}
-					if (wfFromHours[1] >= wfToHours[1]) {
+
 						wfFromHours[0] = wfFromHours[1];
 						wfToHours[0] = wfToHours[1];
 					}
-					if (tgFromHours[1] >= tgToHours[1]) {
+					if (tgFromHours[6] >= tgToHours[6]
+							&& tgFromMinutes[6] >= tgToMinutes[6]
+							&& tgFromHours[1] >= tgToHours[1]
+							&& tgFromMinutes[1] >= tgToMinutes[1]) {
+
+						tgFromHours[5] = tgFromHours[6];
+						tgToHours[5] = tgToHours[6];
+
 						tgFromHours[0] = tgFromHours[1];
 						tgToHours[0] = tgToHours[1];
 					}
@@ -126,10 +132,7 @@ public class SchedulerActivity extends Activity implements
 
 				// Calendars used to set all of the alarms
 				Calendar calNow = Calendar.getInstance();
-				Calendar calWfFrom = Calendar.getInstance();
-				Calendar calWfTo = Calendar.getInstance();
-				Calendar calTgFrom = Calendar.getInstance();
-				Calendar calTgTo = Calendar.getInstance();
+				Calendar calWfFrom, calWfTo, calTgFrom, calTgTo;
 
 				// Get the current day of the week (starting with Sunday as 0)
 				int currentDay = calNow.get(Calendar.DAY_OF_WEEK) - 1;
@@ -150,6 +153,10 @@ public class SchedulerActivity extends Activity implements
 						calWfTo.set(Calendar.MINUTE, wfToMinutes[i]);
 						calWfTo.set(Calendar.SECOND, 0);
 
+						if (calWfTo.compareTo(calWfFrom) <= 0) {
+							calWfTo.add(Calendar.DATE, 1);
+						}
+
 						if (i < currentDay) {
 							// If the day we are setting the alarm for has
 							// already passed this week, set it for the same day
@@ -165,16 +172,13 @@ public class SchedulerActivity extends Activity implements
 
 						} else {
 
-							if (calWfFrom.compareTo(calNow) <= 0
-									|| calWfTo.compareTo(calNow) <= 0) {
+							if (calWfFrom.compareTo(calNow) <= 0) {
 								calWfFrom.add(Calendar.DATE, 7);
+							}
+							if (calWfTo.compareTo(calNow) <= 0) {
 								calWfTo.add(Calendar.DATE, 7);
 							}
 
-						}
-
-						if (calWfTo.compareTo(calWfFrom) <= 0) {
-							calWfTo.add(Calendar.DATE, 1);
 						}
 
 						Intent disableIntent =
@@ -226,6 +230,10 @@ public class SchedulerActivity extends Activity implements
 						calTgTo.set(Calendar.MINUTE, tgToMinutes[i]);
 						calTgTo.set(Calendar.SECOND, 0);
 
+						if (calTgTo.compareTo(calTgFrom) <= 0) {
+							calTgTo.add(Calendar.DATE, 1);
+						}
+
 						if (i < currentDay) {
 							// If the day we are setting the alarm for has
 							// already passed this week, set it for the same day
@@ -239,16 +247,12 @@ public class SchedulerActivity extends Activity implements
 							calTgTo.add(Calendar.DATE, i - currentDay);
 						} else {
 
-							if (calTgFrom.compareTo(calNow) <= 0
-									|| calTgTo.compareTo(calNow) <= 0) {
+							if (calTgFrom.compareTo(calNow) <= 0) {
 								calTgFrom.add(Calendar.DATE, 7);
+							}
+							if (calTgTo.compareTo(calNow) <= 0) {
 								calTgTo.add(Calendar.DATE, 7);
 							}
-
-						}
-
-						if (calTgTo.compareTo(calTgFrom) <= 0) {
-							calTgTo.add(Calendar.DATE, 1);
 						}
 
 						Intent disableIntent =

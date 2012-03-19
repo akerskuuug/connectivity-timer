@@ -283,6 +283,9 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 					calWfTo.set(Calendar.MINUTE, wfToMinutes[i]);
 					calWfTo.set(Calendar.SECOND, 0);
 
+					if (calWfTo.compareTo(calWfFrom) <= 0) {
+						calWfTo.add(Calendar.DATE, 1);
+					}
 					if (i < currentDay) {
 						// If the day we are setting the alarm for has
 						// already passed this week, set it for the same day
@@ -296,16 +299,13 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 						calWfTo.add(Calendar.DATE, i - currentDay);
 					} else {
 
-						if (calWfFrom.compareTo(calNow) <= 0
-								|| calWfTo.compareTo(calNow) <= 0) {
+						if (calWfFrom.compareTo(calNow) <= 0) {
 							calWfFrom.add(Calendar.DATE, 7);
+						}
+						if (calWfTo.compareTo(calNow) <= 0) {
 							calWfTo.add(Calendar.DATE, 7);
 						}
 
-					}
-
-					if (calWfTo.compareTo(calWfFrom) <= 0) {
-						calWfTo.add(Calendar.DATE, 1);
 					}
 
 					Intent disableIntent =
@@ -358,6 +358,10 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 					calTgTo.set(Calendar.MINUTE, tgToMinutes[i]);
 					calTgTo.set(Calendar.SECOND, 0);
 
+					if (calTgTo.compareTo(calTgFrom) <= 0) {
+						calTgTo.add(Calendar.DATE, 1);
+					}
+
 					if (i < currentDay) {
 						// If the day we are setting the alarm for has
 						// already passed this week, set it for the same day
@@ -371,16 +375,12 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 						calTgTo.add(Calendar.DATE, i - currentDay);
 					} else {
 
-						if (calTgFrom.compareTo(calNow) <= 0
-								|| calTgTo.compareTo(calNow) <= 0) {
+						if (calTgFrom.compareTo(calNow) <= 0) {
 							calTgFrom.add(Calendar.DATE, 7);
+						}
+						if (calTgTo.compareTo(calNow) <= 0) {
 							calTgTo.add(Calendar.DATE, 7);
 						}
-
-					}
-
-					if (calTgTo.compareTo(calTgFrom) <= 0) {
-						calTgTo.add(Calendar.DATE, 1);
 					}
 
 					Intent disableIntent =
