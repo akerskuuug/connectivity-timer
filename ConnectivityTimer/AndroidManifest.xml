@@ -80,10 +80,10 @@
         <receiver android:process=":remote" android:name=".alarm.Schedule3GDisableReceiver" />
         <receiver android:process=":remote" android:name=".alarm.RetryReceiver" />
         <receiver android:process=":remote" android:name=".alarm.RebootCompletedReceiver">
-        <intent-filter>
-            <action android:name="android.intent.action.BOOT_COMPLETED"/>
-        </intent-filter>
-    </receiver>
+	        <intent-filter>
+	            <action android:name="android.intent.action.BOOT_COMPLETED"/>
+	        </intent-filter>
+    	</receiver>
         
         
     </application>

@@ -129,7 +129,11 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 			} else if (mode.equals("medium")) {
 
 				for (int i = 0; i < 7; i++) {
+
+					settings.getInt(Constants.SCHEDULER_MEDIUM_WEEK[i], 0);
+
 					if (i > 0 && i < 6) {
+
 						wfFrom =
 								timeArray[settings
 										.getInt(Constants.SCHEDULER_WD_WIFI_FROM_SELECTION,
@@ -290,8 +294,8 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 						// If the day we are setting the alarm for has
 						// already passed this week, set it for the same day
 						// next week
-						calWfFrom.add(Calendar.DATE, 7 - currentDay);
-						calWfTo.add(Calendar.DATE, 7 - currentDay);
+						calWfFrom.add(Calendar.DATE, 7 + i - currentDay);
+						calWfTo.add(Calendar.DATE, 7 + i - currentDay);
 					} else if (i > currentDay) {
 						// If the day is later this week, add the correct
 						// number of days
@@ -366,8 +370,8 @@ public class RebootCompletedReceiver extends BroadcastReceiver {
 						// If the day we are setting the alarm for has
 						// already passed this week, set it for the same day
 						// next week
-						calTgFrom.add(Calendar.DATE, 7 - currentDay);
-						calTgTo.add(Calendar.DATE, 7 - currentDay);
+						calTgFrom.add(Calendar.DATE, 7 + i - currentDay);
+						calTgTo.add(Calendar.DATE, 7 + i - currentDay);
 					} else if (i > currentDay) {
 						// If the day is later this week, add the correct
 						// number of days
