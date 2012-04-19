@@ -161,8 +161,8 @@ public class SchedulerActivity extends Activity implements
 							// If the day we are setting the alarm for has
 							// already passed this week, set it for the same day
 							// next week
-							calWfFrom.add(Calendar.DATE, 7 - currentDay);
-							calWfTo.add(Calendar.DATE, 7 - currentDay);
+							calWfFrom.add(Calendar.DATE, 7 + i - currentDay);
+							calWfTo.add(Calendar.DATE, 7 + i - currentDay);
 
 						} else if (i > currentDay) {
 							// If the day is later this week, add the correct
@@ -238,8 +238,8 @@ public class SchedulerActivity extends Activity implements
 							// If the day we are setting the alarm for has
 							// already passed this week, set it for the same day
 							// next week
-							calTgFrom.add(Calendar.DATE, 7 - currentDay);
-							calTgTo.add(Calendar.DATE, 7 - currentDay);
+							calTgFrom.add(Calendar.DATE, 7 + i - currentDay);
+							calTgTo.add(Calendar.DATE, 7 + i - currentDay);
 						} else if (i > currentDay) {
 							// If the day is later this week, add the correct
 							// number of days
