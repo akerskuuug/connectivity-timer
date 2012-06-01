@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView 
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/application_bg">
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:padding="10dip">
+			<TextView 
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_marginTop="10dip"
+			    android:text="@string/disable_between"
+				android:textSize="15dip"
+			    android:textColor="#000000"/>
+			
+			<!-- Divider -->
+			<include layout="@layout/divider"/>
+		 	
+		    
+		    <LinearLayout     
+		        android:layout_width="match_parent"
+		   		android:layout_height="wrap_content"
+		   		android:orientation="horizontal">
+		        <Button 
+		            android:id="@+id/from_button"
+		            android:layout_height="wrap_content"
+		            android:layout_width="wrap_content"
+					android:background="@drawable/spinner_bg"
+			        android:textColor="#000000"/>
+		        
+		        
+			    <TextView
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="15dip"
+			        android:layout_marginRight="15dip" 
+			        android:textColor="#000000"
+			        android:textSize="15dip"
+			        android:text="@string/and"
+			   />
+		        
+		        
+		        <Button 
+		            android:id="@+id/to_button"
+		            android:layout_height="wrap_content"
+		            android:layout_width="wrap_content"
+					android:background="@drawable/spinner_bg"
+			        android:textColor="#000000"/>
+		        
+		       
+		        
+		    </LinearLayout>
+		    
+		     <TextView
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_margin="5dip"
+			        android:layout_marginLeft="15dip"
+			        android:layout_marginRight="15dip" 
+			        android:textColor="#a0a0a0"
+			        android:textSize="12dip"
+			        android:text="@string/scheduler_popup_tooltip_text"
+			   />
+			
+			<TextView 
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_marginTop="20dip"
+			    android:text="@string/disable"
+				android:textSize="15dip"
+			    android:textColor="#000000"/>
+			
+			<!-- Divider -->
+			<include layout="@layout/divider"/>
+		 	
+		 	
+		 	<LinearLayout     
+		 	    android:layout_width="match_parent"
+		    	android:layout_height="wrap_content"
+		    	android:orientation="horizontal">
+		 		<CheckBox 
+		            android:id="@+id/disable_wifi_check"
+		            android:layout_height="wrap_content"
+		            android:layout_width="wrap_content"
+		            android:layout_marginRight="10dip"
+					android:button="@drawable/check_button_bg"
+		            android:text="@string/wifi"
+			        android:textSize="13dip"
+			        android:textColor="#000000"/>
+		        
+		        <CheckBox 
+		            android:id="@+id/disable_3g_check"
+		            android:layout_height="wrap_content"
+		            android:layout_width="wrap_content"
+					android:button="@drawable/check_button_bg"
+		            android:text="@string/tg"
+			        android:textSize="13dip"
+			        android:textColor="#000000"/> 	    
+		 	</LinearLayout>
+		 	
+		 	
+			
+			<TextView 
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_marginTop="20dip"
+			    android:text="@string/use_on"
+				android:textSize="15dip"
+			    android:textColor="#000000"/>
+			
+			<!-- Divider -->
+			<include layout="@layout/divider"/>
+		 	
+		    <LinearLayout     
+		        android:layout_width="match_parent"
+		    	android:layout_height="wrap_content"
+		    	android:orientation="horizontal">
+		        
+		        
+		 		<CheckBox 
+		            android:id="@+id/monday_check"
+		            android:layout_height="wrap_content"
+		            android:layout_width="70dip"
+					android:button="@drawable/check_button_bg"
+					android:checked="true"
+		         	android:text="@string/monday_short"
+			        android:textSize="13dip"
+			        android:textColor="#000000"/>
+		        
+		        <CheckBox 
+		            android:id="@+id/tuesday_check"
+		            android:layout_height="wrap_content"
+		            android:layout_width="70dip"
+					android:button="@drawable/check_button_bg"
+					android:checked="true"
+		         	android:text="@string/tuesday_short"
+			        android:textSize="13dip"
+			        android:textColor="#000000"/>
+		        
+		        <CheckBox 
+		            android:id="@+id/wednesday_check"
+		            android:layout_height="wrap_content"
+		            android:layout_width="70dip"
+					android:button="@drawable/check_button_bg"
+					android:checked="true"
+		         	android:text="@string/wednesday_short"
+			        android:textSize="13dip"
+			        android:textColor="#000000"/>
+		        
+		        <CheckBox 
+		            android:id="@+id/thursday_check"
+		            android:layout_height="wrap_content"
+		            android:layout_width="70dip"
+					android:button="@drawable/check_button_bg"
+					android:checked="true"
+		         	android:text="@string/thursday_short"
+			        android:textSize="13dip"
+			        android:textColor="#000000"/>
+		        
+		
+		        
+		    </LinearLayout>
+		    <LinearLayout     
+		        android:layout_width="match_parent"
+		    	android:layout_height="wrap_content"
+		    	android:orientation="horizontal">
+		            <CheckBox 
+		            android:id="@+id/friday_check"
+		            android:layout_height="wrap_content"
+		            android:layout_width="70dip"
+					android:button="@drawable/check_button_bg"
+					android:checked="true"
+		         	android:text="@string/friday_short"
+			        android:textSize="13dip"
+			        android:textColor="#000000"/>
+		
+		        <CheckBox
+		            android:id="@+id/saturday_check"
+		            android:layout_height="wrap_content"
+		            android:layout_width="70dip"
+					android:button="@drawable/check_button_bg"
+					android:checked="true"
+		            android:text="@string/saturday_short" 
+			        android:textSize="13dip"
+			        android:textColor="#000000"/>
+		        
+		        <CheckBox 
+		            android:id="@+id/sunday_check"
+		            android:layout_height="wrap_content"
+		            android:layout_width="70dip"
+					android:button="@drawable/check_button_bg"
+					android:checked="true"
+		         	android:text="@string/sunday_short"
+			        android:textSize="13dip"
+			        android:textColor="#000000"/>
+		    </LinearLayout>
+		    
+		    
+		    
+		    <Button android:id="@+id/done_button"
+		        android:layout_width="fill_parent"
+		        android:layout_height="50dip"
+		        android:layout_marginTop="20dip"
+		        android:background="@drawable/button_bg"
+		        android:text="@string/done"/>
+    
+		</LinearLayout>
+    </ScrollView>

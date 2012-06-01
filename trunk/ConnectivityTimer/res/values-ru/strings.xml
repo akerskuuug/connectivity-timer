@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Менеджер подключений</string>
+    <string name="enable_3g">Вкл. передачу данных</string>
+    <string name="disable_3g">Выкл. передачу данных</string>
+    <string name="tg">Передача данных</string>
+    <string name="tg_enabled">Передача данных включена</string>
+    <string name="tg_disabled">Передача данных выключена</string>
+    <string name="disable_service">Выключить/закрыть сервис</string>
+    <string name="start">Включить сервис</string>
+    <string name="stop">Выключить сервис</string>
+    <string name="service_started">Сервис включен</string>
+    <string name="service_stopped">Сервис выключен</string>
+    <string name="wifi_disable">Выключить Wi-Fi</string>
+    <string name="wifi_disabled">Wi-Fi выключен</string>
+    <string name="wifi_enabled">Wi-Fi включен</string>
+    <string name="wifi_enable">Включить Wi-Fi</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="wf_timer_name">Наблюдение за Wi-Fi</string>
+    <string name="timed_3g_name">Вкл/выкл передачи данных на время</string>
+    <string name="timed_wf_name">Вкл/выкл Wi-Fi на время</string>
+    <string name="scheduler_name">Планировщик подключения</string>
+    <string name="retry_connection">Пытаться подключаться каждые 30 мин</string>
+    <string name="set_disable_actions">Когда Wi-Fi выключен</string>
+    <string name="watcher_tooltip_text">"Wi-Fi будет включен автоматически вместе с запуском сервиса. 
+Когда сервис запущен, он будет периодически проверять наличие соединения по Wi-Fi. После максимум"</string>
+    <string name="watcher_tooltip_text_end">минут без соединения Wi-Fi будет выключен.</string>
+    <string name="wifi_disable_delay">Задержка отключения (в минутах)</string>
+    <string name="wifi_disabled_lost_conn">Wi-Fi выключится после потери соединения</string>
+    <string name="add">Добавить новый период</string>
+    <string name="and">и</string>
+    <string name="confirm_delete_short">Удалить период</string>
+    <string name="confirm_delete">"Вы уверены, что хотите удалить этот период?
+Это нельзя отменить."</string>
+    <string name="disable">Выключить:</string>
+    <string name="disable_between">Выключить между:</string>
+    <string name="done">Сохранить</string>
+    <string name="disabled">Соединения выключены</string>
+    <string name="disabled_schedule">Соединения выключены в соответствии с графиком</string>
+    <string name="enabled">Соединения включены</string>
+    <string name="enabled_schedule">Соединения включены в соответствии с графиком</string>
+    <string name="pick_time">Выберите время</string>
+    <string name="picker_hint">Нажмите + или - для изменения времени.</string>
+    <string name="scheduler_tooltip_text">"Этот сервис автоматически  выключит Wi-Fi и/или передачу данных на периоды, указанные ниже.
+Для добавления и настройки нового периода нажмите кнопку Добавить новый период, для удаления периода нажмите и удерживайте строку с его расписанием. 
+
+Осторожно, если Wi-Fi или передача данных будет включена после автоматического выключения, то соединение не будет выключено до следующего дня."</string>
+	<string name="scheduler_popup_tooltip_text"></string>
+    <string name="show_notification">Показывать уведомления</string>
+    <string name="use_on">Применить для:</string>
+    <string name="wifi_disable_between">Выключать Wi-Fi между:</string>
+    <string name="tg_disable_between">Выключать передачу данных между:</string>
+    <string name="monday_short">Пн</string>
+    <string name="tuesday_short">Вт</string>
+    <string name="wednesday_short">Ср</string>
+    <string name="thursday_short">Чт</string>
+    <string name="friday_short">Пт</string>
+    <string name="saturday_short">Сб</string>
+    <string name="sunday_short">Вс</string>
+    <string name="to">по</string>
+    <string name="action">Действие</string>
+    <string name="timed_wf_tooltip_text">Когда сервис запущен, Wi-Fi будет включен/выключен в течение заданного периода времени. После этого статус Wi-Fi будет сброшен.</string>
+    <string name="timed_wf_duration">Длительность (часы : минуты)</string>
+    <string name="wifi_disabled_set_time">Wi-Fi выкл. после заданного времени</string>
+    <string name="wifi_enabled_set_time">Wi-Fi вкл. после заданного времени</string>
+    <string name="timed_tg_tooltip_text">Когда сервис запущен, передача данных будет включена/выключена в течение заданного периода времени. После этого статус передачи данных будет сброшен.</string>
+    <string name="tg_disabled_set_time">Передача данных выкл. после заданного времени</string>
+    <string name="tg_enabled_set_time">Передача данных вкл. после заданного времени</string>
+</resources>

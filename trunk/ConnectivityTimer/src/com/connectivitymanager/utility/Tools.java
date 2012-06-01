@@ -13,6 +13,28 @@ import android.util.Log;
 
 public class Tools {
 
+	/**
+	 * Takes an integer as parameter and returns a string that is the integer
+	 * padded with a zero if the value is below 10
+	 * 
+	 * @param input
+	 *            the integer to examine
+	 * @return a padded string
+	 */
+	public static String getPaddedString(int input) {
+
+		return input < 10 ? "0" + input : "" + input;
+
+	}
+
+	public static PendingIntent getDistinctPendingIntent(Context context,
+			Intent intent, int requestId) {
+		PendingIntent pi =
+				PendingIntent.getBroadcast(context, requestId, intent, 0);
+
+		return pi;
+	}
+
 	public static void set3GEnabled(Context context, boolean enabled) {
 		ConnectivityManager cnMgr =
 				(ConnectivityManager) context
