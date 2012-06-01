@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="200dip"
+    android:orientation="vertical"
+    android:background="@drawable/application_bg"
+    android:padding="0dip"
+    android:gravity="center" >
+    <TextView 
+        android:layout_width="170dip"
+        android:layout_height="wrap_content"
+        android:textColor="#303030"
+        android:textSize="9dip"
+        android:text="@string/picker_hint"
+        android:gravity="center"
+        
+        />
+    
+    <com.connectivitymanager.utility.MyTimePicker
+	  android:id="@+id/picker"
+	  android:layout_width="wrap_content"
+	  android:layout_height="120dip"
+        
+     />
+    
+    <Button android:id="@+id/done_button"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/button_bg"
+        android:text="@string/done"/>
+
+</LinearLayout>

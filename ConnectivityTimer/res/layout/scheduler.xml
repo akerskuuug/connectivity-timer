@@ -13,106 +13,42 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dip"
         android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"    			
+        android:layout_marginRight="10dip"  
+        android:layout_alignParentTop="true"  		
         android:textColor="#000000"
         android:text="@string/scheduler_tooltip_text"
         />
-      <!-- Options -->
-     <ScrollView	
-        android:id="@+id/everyday_scroll"
-        android:layout_below="@+id/scheduler_tooltip"
-        android:layout_above="@+id/bottom_buttons"
-        android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-   		android:padding="5dip">
-   		
-	  
-   		 <LinearLayout        
-	    	 android:layout_width="match_parent"
-	   		 android:layout_height="wrap_content"
-	   		 android:orientation="vertical"
-	   		 android:gravity="center">
-	   		 
-   		     <TextView
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_marginTop="5dip"
-		        android:layout_marginLeft="10dip"
-		        android:layout_marginRight="10dip"    			
-		        android:textColor="#000000"
-		        android:textSize="15dip"
-		        android:text="@string/mode"
-		        />
-   		     
-	   		<!-- Divider -->
-    		<include layout="@layout/divider"/>
-   		     
-	   		<LinearLayout 
-		        android:id="@+id/top_buttons"
-		    	android:layout_width="match_parent"
-		    	android:layout_height="match_parent"
-        		android:layout_marginBottom="15dip"
-		    	android:orientation="horizontal"
-		    	android:weightSum="3" >
-		        
-		       	<Button
-			        android:id="@+id/simple_button"
-			        android:layout_width="match_parent"
-			        android:layout_height="50dip" 
-			        android:layout_weight="1"
-			        android:layout_margin="0dip"
-			        android:background="@drawable/button_bg"
-			        android:text="@string/simple"/>
-			
-			    <Button
-			    	android:id="@+id/medium_button"
-			    	android:layout_width="match_parent"
-					android:layout_height="50dip"
-			    	android:layout_weight="1"
-			        android:layout_margin="0dip"
-			        android:background="@drawable/button_bg"
-			    	android:text="@string/medium" />
-		        <Button
-			    	android:id="@+id/advanced_button"
-			    	android:layout_width="match_parent"
-					android:layout_height="50dip"
-			    	android:layout_weight="1"
-			        android:layout_margin="0dip"
-			        android:background="@drawable/button_bg"
-			    	android:text="@string/advanced" />
-		        
-		    </LinearLayout>
-	   		     
-	   		
-	   		
-	   		<!-- Simple -->
-    		<include layout="@layout/scheduler_simple"/>     
-    		
-	   		<!-- Medium -->
-    		<include layout="@layout/scheduler_medium"/>   
-    		
-	   		<!-- Advanced -->
-    		<include layout="@layout/scheduler_advanced"/>   
-    		
-    		<CheckBox 
-		       	android:id="@+id/schedulder_notification_check"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_gravity="left"
-				android:paddingLeft="45dip"
-				android:button="@drawable/check_button_bg"
-		        android:text="@string/show_notification"
-		        android:textSize="13dip"       			
-		     	android:textColor="#000000"/>
-    		
-    		
-	     </LinearLayout> 
-    </ScrollView>
-    <!-- /Options -->
-    
-     <!-- Buttons -->
-    <include layout="@layout/bottom_buttons"/>
 
+    
   
+	
+	
+	<ListView 
+	    android:id="@+id/alarm_list"
+	    android:layout_below="@+id/scheduler_tooltip"
+	    android:layout_above="@+id/scheduler_notification_check"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:dividerHeight="1dip"
+	    android:divider="@drawable/divider"
+	    android:fadingEdge="none"
+	/>   
+		
+		
+	<CheckBox 
+		android:id="@+id/scheduler_notification_check"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:layout_alignParentBottom="true"
+		android:layout_margin="10dip"
+		android:paddingLeft="45dip"
+		android:button="@drawable/check_button_bg"
+		android:text="@string/show_notification"
+		android:textSize="13dip"       			
+		android:textColor="#000000"/>
+	  		
+    		
+    <!-- /Options -->
     
 </RelativeLayout>

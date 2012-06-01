@@ -70,21 +70,21 @@
         		<action android:name="com.connectivitymanager.core.TIMED_3G" />
 
         	</intent-filter>
-        </activity>
+        </activity>												
         <receiver android:process=":remote" android:name=".alarm.TimedWifiReceiver" />
         <receiver android:process=":remote" android:name=".alarm.Timed3GReceiver" />
         <receiver android:process=":remote" android:name=".alarm.DisconnectReceiver" />
-        <receiver android:process=":remote" android:name=".alarm.ScheduleWifiEnableReceiver" />
-        <receiver android:process=":remote" android:name=".alarm.ScheduleWifiDisableReceiver" />
-        <receiver android:process=":remote" android:name=".alarm.Schedule3GEnableReceiver" />
-        <receiver android:process=":remote" android:name=".alarm.Schedule3GDisableReceiver" />
+        <receiver android:process=":remote" android:name=".alarm.SchedulerReceiver" />
         <receiver android:process=":remote" android:name=".alarm.RetryReceiver" />
+        
         <receiver android:process=":remote" android:name=".alarm.RebootCompletedReceiver">
 	        <intent-filter>
 	            <action android:name="android.intent.action.BOOT_COMPLETED"/>
 	        </intent-filter>
     	</receiver>
+    	 
         
+	        
         
     </application>
 </manifest>
