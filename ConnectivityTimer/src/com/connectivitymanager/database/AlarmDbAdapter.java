@@ -214,9 +214,10 @@ public class AlarmDbAdapter {
 
 		for (int i = 0; i < 7; i++) {
 			if (enabledWeekdays[i]) {
+				// Set to the correct number of days
 				if (i < dayOfWeek) {
 					if (daysUntil == 7) {
-						daysUntil -= i;
+						daysUntil = 7 - dayOfWeek + i;
 					}
 				} else if (i > dayOfWeek) {
 					daysUntil = i - dayOfWeek;
