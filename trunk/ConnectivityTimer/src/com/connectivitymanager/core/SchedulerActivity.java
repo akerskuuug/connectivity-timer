@@ -14,7 +14,6 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -396,11 +395,6 @@ public class SchedulerActivity extends Activity implements OnClickListener {
 					intent.putExtra(Constants.SCHEDULER_ENABLE, false);
 					intent.putExtra(Constants.SCHEDULER_DISABLE_WIFI, wfChecked);
 					intent.putExtra(Constants.SCHEDULER_DISABLE_3G, tgChecked);
-
-					Log.d("",
-							""
-									+ (calFrom.getTimeInMillis() - calNow
-											.getTimeInMillis()) / 60000);
 
 					// Set the alarm
 					am.set(AlarmManager.RTC_WAKEUP, calFrom.getTimeInMillis(),
