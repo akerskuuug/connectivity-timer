@@ -14,6 +14,27 @@ import android.util.Log;
 public class Tools {
 
 	/**
+	 * This method fixes the formatting in the time for hour and minute values
+	 * less than 10.
+	 * 
+	 * @param hours
+	 *            self explanatory
+	 * @param minutes
+	 *            self explanatory
+	 * @return the complete string, in the format HH:MM
+	 */
+	public static String fixTimeFormatting(int hours, int minutes) {
+		String hr, min;
+
+		// Fix formatting for values less than 10
+		hr = hours < 10 ? "0" : "";
+		min = minutes < 10 ? "0" : "";
+
+		return hr + hours + ":" + min + minutes;
+
+	}
+
+	/**
 	 * Takes an integer as parameter and returns a string that is the integer
 	 * padded with a zero if the value is below 10
 	 * 

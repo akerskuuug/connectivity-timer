@@ -158,6 +158,41 @@ public class AlarmDbAdapter {
 	}
 
 	/**
+	 * Updates an alarm according to the parameters
+	 * 
+	 * @param id
+	 *            the alarm to update
+	 * @param from
+	 * @param to
+	 * @param enabledWeekdays
+	 * @param disableWifi
+	 * @param disable3g
+	 * @return the success of the operation
+	 */
+	public boolean updateAlarm(final int id, final int from, final int to,
+			final boolean[] enabledWeekdays, boolean disableWifi,
+			boolean disable3g) {
+
+		final ContentValues args = new ContentValues();
+		args.put(KEY_FROM, from);
+		args.put(KEY_TO, to);
+
+		args.put(KEY_SUN, enabledWeekdays[0]);
+		args.put(KEY_MON, enabledWeekdays[1]);
+		args.put(KEY_TUE, enabledWeekdays[2]);
+		args.put(KEY_WED, enabledWeekdays[3]);
+		args.put(KEY_THU, enabledWeekdays[4]);
+		args.put(KEY_FRI, enabledWeekdays[5]);
+		args.put(KEY_SAT, enabledWeekdays[6]);
+
+		args.put(KEY_WIFI, disableWifi);
+		args.put(KEY_3G, disable3g);
+
+		return mDb.update(DATABASE_TABLE_ALARMS, args, KEY_ROWID + "=" + id,
+				null) > 0;
+	}
+
+	/**
 	 * Queries the database for the given alarm and returns the enabled status
 	 * of each day of the week (beginning with Sunday)
 	 * 

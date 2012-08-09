@@ -46,6 +46,7 @@
 	<string name="done">Klar</string>
 	<string name="disabled">Anslutningar inaktiverade</string>
 	<string name="disabled_schedule">Anslutningar inaktiverade enligt schema</string>
+	<string name="edit">Redigera</string>
 	<string name="enabled">Anslutningar aktiverade</string>
 	<string name="enabled_schedule">Anslutningar aktiverade enligt schema</string>
 	<string name="pick_time">Välj tid</string>

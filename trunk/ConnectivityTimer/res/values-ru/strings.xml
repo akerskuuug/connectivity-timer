@@ -39,6 +39,7 @@
     <string name="done">Сохранить</string>
     <string name="disabled">Соединения выключены</string>
     <string name="disabled_schedule">Соединения выключены в соответствии с графиком</string>
+	<string name="edit">редактировать</string>
     <string name="enabled">Соединения включены</string>
     <string name="enabled_schedule">Соединения включены в соответствии с графиком</string>
     <string name="pick_time">Выберите время</string>
