@@ -47,6 +47,7 @@
 	<string name="done">Done</string>
 	<string name="disabled">Connections disabled</string>
 	<string name="disabled_schedule">Connections disabled according to schedule</string>
+	<string name="edit">Edit</string>
 	<string name="enabled">Connections enabled</string>
 	<string name="enabled_schedule">Connections enabled according to schedule</string>
 	<string name="pick_time">Pick time</string>
